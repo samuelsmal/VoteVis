@@ -38,6 +38,7 @@ public class VoteVisPresenter implements EntryPoint {
 	
 	private AboutPresenter about;
 	private VisPresenter vis;
+	private SelectionDialog sel;
 	
 	
 	/**
@@ -81,7 +82,7 @@ public class VoteVisPresenter implements EntryPoint {
 	
 	@UiHandler("selectionButton")
 	public void handleSelection (ClickEvent e) {
-
+		openSelectionDialog();
 	}
 	
 	public void goToAboutPage () {
@@ -102,6 +103,11 @@ public class VoteVisPresenter implements EntryPoint {
 		}
 		
 		content.add(vis);
+	}
+	
+	public void openSelectionDialog() {
+		
+		new SelectionDialog().show();
 	}
 
 }
