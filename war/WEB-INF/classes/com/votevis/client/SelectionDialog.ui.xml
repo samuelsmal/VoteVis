@@ -6,7 +6,13 @@
 			font-weight: bold;
 		}
 	</ui:style>
-	<g:HTMLPanel>
-		Hello,
-	</g:HTMLPanel>
+	     <g:DialogBox autoHide="true" modal="true">
+   
+   <g:caption><b>Caption text</b></g:caption>
+   <g:HTMLPanel>
+     Body text
+     <g:Button ui:field='cancelButton'>Cancel</g:Button>
+     <g:Button ui:field='okButton'>Okay</g:Button>
+   </g:HTMLPanel>
+ </g:DialogBox>
 </ui:UiBinder> 
