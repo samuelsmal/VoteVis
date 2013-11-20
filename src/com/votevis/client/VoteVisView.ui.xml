@@ -3,8 +3,61 @@
   xmlns:g='urn:import:com.google.gwt.user.client.ui'
   xmlns:votevis='urn:import:com.votevis.client'>
     
+      <ui:style>
+  .brand {
+	text-align: left;
+    font-size: 200%;
+	colour: grey;
+  }
+
+  .statusDiv {
+    text-align: right;
+    margin: 1em;
+  }
+
+  .linksDiv {
+    text-align: right;
+  }
+
+  .logo {
+    background: url(logo.png);
+    position: absolute;
+    width: 140px;
+    height: 75px;
+  }
+
+  .nav-ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+    position: relative;
+  }
+
+
+ .nav-li {
+	display: inline;
+	}
+
+	.foo {
+	width: 100%;
+	height: 30px;
+	border: 1px red solid;
+	}
+
+  </ui:style>
   <g:HTMLPanel>
-      <votevis:NavPresenter ui:field='nav' />
+    <div class='{style.logo}'/>
+    
+    <div class='{style.brand}'>
+        VoteVis
+    </div>
+    
+    <ul class='{style.nav-ul}'>
+        <li class='{style.nav-li}'><g:Button ui:field='homeLink'>Home</g:Button></li>
+        <li class='{style.nav-li}'><g:Button ui:field='aboutLink'>About</g:Button></li>
+        <li class='{style.nav-li}'><g:Button ui:field='contactLink'>Contact</g:Button></li>
+        <li class='{style.nav-li}'><g:Button ui:field='selectionButton'>Selection Abstimmung</g:Button></li>
+    </ul>
       <g:HTMLPanel ui:field='content' />
   </g:HTMLPanel>
 
