@@ -5,11 +5,16 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.DivElement;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.Style.Overflow;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
@@ -24,11 +29,16 @@ public class VoteVisPresenter implements EntryPoint {
 	interface Binder extends UiBinder<HTMLPanel, VoteVisPresenter> {}
 	private static final Binder binder = GWT.create(Binder.class);
 
-	@UiField NavPresenter nav;
+	//@UiField NavPresenter nav;
 	@UiField HTMLPanel content;
+	@UiField Button homeLink;
+	@UiField Button aboutLink;
+	@UiField Button contactLink;
+	@UiField Button selectionButton;
 	
 	private AboutPresenter about;
 	private VisPresenter vis;
+	private SelectionDialog sel;
 	
 	
 	/**
@@ -37,15 +47,12 @@ public class VoteVisPresenter implements EntryPoint {
 	public void onModuleLoad() {
 		HTMLPanel outer = binder.createAndBindUi(this);
 		
-		nav = new NavPresenter(this);
+		//nav = new NavPresenter(this);
 		
 		vis = new VisPresenter();
 		
 		content.add(vis);
-		
-		// Gives me a weird error:
-		// 		[ERROR] [votevis] - Unable to find type 'com.votevis.client.AboutPersonPanel_BinderImpl.Template'
-//		AboutPersonPanel app = new AboutPersonPanel();
+		//content.clear();
 		
 		Window.enableScrolling(false);
 	    Window.setMargin("0px");
@@ -53,6 +60,29 @@ public class VoteVisPresenter implements EntryPoint {
 		RootLayoutPanel root = RootLayoutPanel.get();
 		root.add(outer);
 		root.forceLayout();
+	}
+
+	@UiHandler("homeLink")
+	public void handleHome (ClickEvent e) {
+		goToVisPage();
+	}
+	
+	@UiHandler("aboutLink")
+	public void handleAbout (ClickEvent e) {
+		goToAboutPage();
+	}
+	
+	@UiHandler("contactLink")
+	public void handleContact (ClickEvent e) {
+//		callbackObj.goToAboutPage();
+//		foo.setInnerText("contact clicked");
+		Window.alert("about@votevis.com");
+		
+	}
+	
+	@UiHandler("selectionButton")
+	public void handleSelection (ClickEvent e) {
+		openSelectionDialog();
 	}
 	
 	public void goToAboutPage () {
@@ -74,4 +104,10 @@ public class VoteVisPresenter implements EntryPoint {
 		
 		content.add(vis);
 	}
+	
+	public void openSelectionDialog() {
+		
+		new SelectionDialog().show();
+	}
+
 }

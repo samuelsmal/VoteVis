@@ -21,7 +21,7 @@
 	</header>
 	
 	<div class='{style.vis-body}'>
-	     <iframe width="100%" height="100%" scrolling="no" frameborder="no" src="https://www.google.com/fusiontables/embedviz?q=select+col0%3E%3E0+from+1Myt3MFuma1d6QXB9BBQHYMtAiBo4wAsRfbylXZA&amp;viz=MAP&amp;h=false&amp;lat=46.382230029390236&amp;lng=8.653136241529978&amp;t=1&amp;z=8&amp;l=col0%3E%3E0&amp;y=2&amp;tmplt=2&amp;hml=KML"></iframe>
+	     <iframe width="100%" height="100%" scrolling="no" frameborder="no" src="https://www.google.com/fusiontables/embedviz?q=select+col0%3E%3E0+from+1Myt3MFuma1d6QXB9BBQHYMtAiBo4wAsRfbylXZA&amp;viz=MAP&amp;h=false&amp;lat=46.78&amp;lng=8.14&amp;t=1&amp;z=8&amp;l=col0%3E%3E0&amp;y=2&amp;tmplt=2&amp;hml=KML"></iframe>
 	</div>
 	
 	<votevis:CommentPresenter ui:field='comment'/>

@@ -3,5 +3,11 @@
   xmlns:g='urn:import:com.google.gwt.user.client.ui'
   xmlns:votevis='urn:import:com.votevis.client'>
 
-	<g:HTMLPanel ui:field='personContainer'></g:HTMLPanel>
+	<g:HTMLPanel ui:field='personContainer'>
+	    
+	    <h1>blahblah</h1>
+	    <p> Blahblahbla</p>
+	</g:HTMLPanel>
+	
+	
 </ui:UiBinder>
