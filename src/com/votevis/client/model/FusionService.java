@@ -12,7 +12,7 @@ public class FusionService  {
 	
 	public String getTable() {
 		String query = "https://www.googleapis.com/fusiontables/v1/query?sql=SELECT * FROM 10UWQ4DYtmmS1_aaArraatZSGA_6ml9TGwa7FLMk&key=AIzaSyCcjQlwAbsCCZenYYbFXoTE13QEM5rLw7A";
-		builder = new RequestBuilder(RequestBuilder.GET, URL.encode(fusionTableUrl));
+		builder = new RequestBuilder(RequestBuilder.GET, URL.encode(query));
 		
 		try {
 		  Request request = builder.sendRequest(null, new RequestCallback() {
@@ -35,6 +35,4 @@ public class FusionService  {
 		
 		return responseText;
 	}
-	
-
 }

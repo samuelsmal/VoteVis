@@ -9,8 +9,8 @@ import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 public class AboutPresenter extends Composite {
-	
-	@UiTemplate("../view/AboutView.ui.xml")
+	// Ignore this warning. It is correct.
+	@UiTemplate("com.votevis.client.view.AboutView.ui.xml")
 	interface Binder extends UiBinder<Widget, AboutPresenter> { }
 	private static final Binder binder = GWT.create(Binder.class);
 	

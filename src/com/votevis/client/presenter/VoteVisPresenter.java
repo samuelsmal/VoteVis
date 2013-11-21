@@ -2,20 +2,13 @@ package com.votevis.client.presenter;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.dom.client.DivElement;
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.dom.client.Style.Overflow;
 import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.logical.shared.ValueChangeEvent;
-import com.google.gwt.event.logical.shared.ValueChangeHandler;
-import com.google.gwt.place.shared.Place;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 
@@ -24,12 +17,11 @@ import com.google.gwt.user.client.ui.RootLayoutPanel;
  * Entry point classes define <code>onModuleLoad()</code>.
  */
 public class VoteVisPresenter implements EntryPoint {
-	
-	@UiTemplate("../view/VoteVisView.ui.xml")
+	// Ignore this warning. It is correct.
+	@UiTemplate("com.votevis.client.view.VoteVisView.ui.xml")
 	interface Binder extends UiBinder<HTMLPanel, VoteVisPresenter> {}
 	private static final Binder binder = GWT.create(Binder.class);
 
-	//@UiField NavPresenter nav;
 	@UiField HTMLPanel content;
 	@UiField Button homeLink;
 	@UiField Button aboutLink;
@@ -55,7 +47,7 @@ public class VoteVisPresenter implements EntryPoint {
 		
 		Window.enableScrolling(true);
 	    Window.setMargin("0 auto");
-
+	
 		RootLayoutPanel root = RootLayoutPanel.get();
 		root.add(outer);
 		root.forceLayout();
@@ -109,5 +101,4 @@ public class VoteVisPresenter implements EntryPoint {
 		}
 		selection.center();
 	}
-
 }
