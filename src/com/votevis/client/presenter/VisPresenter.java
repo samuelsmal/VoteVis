@@ -1,5 +1,6 @@
 package com.votevis.client.presenter;
 
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.SpanElement;
 import com.google.gwt.http.client.Request;
@@ -27,8 +28,11 @@ public class VisPresenter extends Composite {
 	public VisPresenter () {
 	    initWidget(binder.createAndBindUi(this));
 	    
-		String query = "https://www.googleapis.com/fusiontables/v1/query?sql=SELECT * FROM 10UWQ4DYtmmS1_aaArraatZSGA_6ml9TGwa7FLMk&key=AIzaSyCcjQlwAbsCCZenYYbFXoTE13QEM5rLw7A";
-		RequestBuilder builder = new RequestBuilder(RequestBuilder.GET, URL.encode(query));
+	    String options = "ID, Title, Wahlergebnis, Datum, Kanton, Stimmberechtigte, 'Abgegebene Stimmen', Stimmbeteiligung, 'Ja Stimmen', 'Nein Stimmen', 'Ja Stimmen in Prozent', 'Nein Stimmen in Prozent'";
+	    String urlFirstPart = "https://www.googleapis.com/fusiontables/v1/query?sql=";
+		String query = "SELECT ID FROM ";
+		String urlLastPart = "10UWQ4DYtmmS1_aaArraatZSGA_6ml9TGwa7FLMk&key=AIzaSyCcjQlwAbsCCZenYYbFXoTE13QEM5rLw7A";
+		RequestBuilder builder = new RequestBuilder(RequestBuilder.GET, URL.encode(urlFirstPart + query + urlLastPart));
 		
 		try {
 		  @SuppressWarnings("unused")
