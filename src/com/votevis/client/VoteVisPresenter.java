@@ -38,7 +38,7 @@ public class VoteVisPresenter implements EntryPoint {
 	
 	private AboutPresenter about;
 	private VisPresenter vis;
-	private SelectionDialog sel;
+	private SelectionPopup selection;
 	private ContactPresenter contact;
 	
 	
@@ -47,8 +47,6 @@ public class VoteVisPresenter implements EntryPoint {
 	 */
 	public void onModuleLoad() {
 		HTMLPanel outer = binder.createAndBindUi(this);
-		
-		//nav = new NavPresenter(this);
 		
 		vis = new VisPresenter();
 		
@@ -106,8 +104,10 @@ public class VoteVisPresenter implements EntryPoint {
 	}
 		
 	public void openSelectionDialog() {
-		
-		new SelectionDialog().show();
+		if (selection == null) {
+			selection = new SelectionPopup();
+		}
+		selection.center();
 	}
 
 }

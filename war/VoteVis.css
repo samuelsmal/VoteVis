@@ -7,6 +7,10 @@
 	height: auto;
 }
 
+.selectionpopup {
+	background-color: white;
+	border: 1px red solid;
+}
 
 /** Example rules used by the template application (remove for your app) */
 h1 {
