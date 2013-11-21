@@ -51,10 +51,10 @@ public class VoteVisPresenter implements EntryPoint {
 		vis = new VisPresenter();
 		
 		content.add(vis);
-		//content.clear();
+		selectionButton.setEnabled(true);
 		
 		Window.enableScrolling(false);
-	    Window.setMargin("0px");
+	    Window.setMargin("0 auto");
 
 		RootLayoutPanel root = RootLayoutPanel.get();
 		root.add(outer);
@@ -69,6 +69,7 @@ public class VoteVisPresenter implements EntryPoint {
 			vis = new VisPresenter();
 		}
 		
+		selectionButton.setEnabled(true);
 		content.add(vis);
 	}
 	
@@ -80,6 +81,7 @@ public class VoteVisPresenter implements EntryPoint {
 			about = new AboutPresenter();
 		}
 		
+		selectionButton.setEnabled(false);
 		content.add(about);
 	}
 	
@@ -91,6 +93,7 @@ public class VoteVisPresenter implements EntryPoint {
 			contact = new ContactPresenter();
 		}
 		
+		selectionButton.setEnabled(false);
 		content.add(contact);
 	}
 	
@@ -98,12 +101,9 @@ public class VoteVisPresenter implements EntryPoint {
 	public void handleSelection (ClickEvent e) {
 		openSelectionDialog();
 	}
-	
-	public void goToAboutPage () {
-
-	}
+			
+	public void openSelectionDialog() {		
 		
-	public void openSelectionDialog() {
 		if (selection == null) {
 			selection = new SelectionPopup();
 		}
