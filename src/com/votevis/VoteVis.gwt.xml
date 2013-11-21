@@ -4,5 +4,6 @@
 <module rename-to='votevis'>
   <inherits name='com.google.gwt.user.User'/>
   <inherits name="com.google.gwt.uibinder.UiBinder" />
-  <entry-point class="com.votevis.client.VoteVisPresenter" />
+  <inherits name="com.google.gwt.http.HTTP"/>
+  <entry-point class="com.votevis.client.presenter.VoteVisPresenter" />
 </module>
