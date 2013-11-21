@@ -5,8 +5,11 @@
 
 	<g:HTMLPanel ui:field='personContainer'>
 	    
-	    <h1>blahblah</h1>
-	    <p> Blahblahbla</p>
+	    <div>
+	        <h1>About us, the project and the fish</h1>
+	        <p>This project is sooooo cool even fish have to get to the surface to heat up.</p>
+	        <p>That's - <i>my precious</i> - when we will eat them. YES EAT THEM RAW!</p>
+	    </div>
 	</g:HTMLPanel>
 	
 	

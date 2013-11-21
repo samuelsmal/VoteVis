@@ -39,6 +39,7 @@ public class VoteVisPresenter implements EntryPoint {
 	private AboutPresenter about;
 	private VisPresenter vis;
 	private SelectionDialog sel;
+	private ContactPresenter contact;
 	
 	
 	/**
@@ -64,38 +65,6 @@ public class VoteVisPresenter implements EntryPoint {
 
 	@UiHandler("homeLink")
 	public void handleHome (ClickEvent e) {
-		goToVisPage();
-	}
-	
-	@UiHandler("aboutLink")
-	public void handleAbout (ClickEvent e) {
-		goToAboutPage();
-	}
-	
-	@UiHandler("contactLink")
-	public void handleContact (ClickEvent e) {
-//		callbackObj.goToAboutPage();
-//		foo.setInnerText("contact clicked");
-		Window.alert("about@votevis.com");
-		
-	}
-	
-	@UiHandler("selectionButton")
-	public void handleSelection (ClickEvent e) {
-		openSelectionDialog();
-	}
-	
-	public void goToAboutPage () {
-		content.clear();
-		
-		if (about == null) {
-			about = new AboutPresenter();
-		}
-		
-		content.add(about);
-	}
-	
-	public void goToVisPage () {
 		content.clear();
 		
 		if (vis == null) {
@@ -105,6 +74,37 @@ public class VoteVisPresenter implements EntryPoint {
 		content.add(vis);
 	}
 	
+	@UiHandler("aboutLink")
+	public void handleAbout (ClickEvent e) {
+		content.clear();
+		
+		if (about == null) {
+			about = new AboutPresenter();
+		}
+		
+		content.add(about);
+	}
+	
+	@UiHandler("contactLink")
+	public void handleContact (ClickEvent e) {
+		content.clear();
+		
+		if (contact == null) {
+			contact = new ContactPresenter();
+		}
+		
+		content.add(contact);
+	}
+	
+	@UiHandler("selectionButton")
+	public void handleSelection (ClickEvent e) {
+		openSelectionDialog();
+	}
+	
+	public void goToAboutPage () {
+
+	}
+		
 	public void openSelectionDialog() {
 		
 		new SelectionDialog().show();

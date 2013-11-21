@@ -20,13 +20,4 @@ public class AboutPresenter extends Composite {
 	    initWidget(binder.createAndBindUi(this));
 
 	}
-	
-	public void addPerson(String name, String body) {
-		AboutPersonPresenter app = new AboutPersonPresenter();
-		
-		app.setBody(body);
-		app.setName(name);
-		
-		personContainer.add(app);
-	}
 }
