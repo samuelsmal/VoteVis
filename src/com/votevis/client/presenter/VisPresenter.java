@@ -28,7 +28,7 @@ public class VisPresenter extends Composite {
 	public VisPresenter () {
 	    initWidget(binder.createAndBindUi(this));
 	    
-	    String options = "ID, Title, Wahlergebnis, Datum, Kanton, Stimmberechtigte, 'Abgegebene Stimmen', Stimmbeteiligung, 'Ja Stimmen', 'Nein Stimmen', 'Ja Stimmen in Prozent', 'Nein Stimmen in Prozent'";
+	    String options = "ID, Titel, Wahlergebnis, Datum, Kanton, Stimmberechtigte, 'Abgegebene Stimmen', Stimmbeteiligung, 'Ja Stimmen', 'Nein Stimmen', 'Ja Stimmen in Prozent', 'Nein Stimmen in Prozent'";
 	    String urlFirstPart = "https://www.googleapis.com/fusiontables/v1/query?sql=";
 		String query = "SELECT ID FROM ";
 		String urlLastPart = "10UWQ4DYtmmS1_aaArraatZSGA_6ml9TGwa7FLMk&key=AIzaSyCcjQlwAbsCCZenYYbFXoTE13QEM5rLw7A";
