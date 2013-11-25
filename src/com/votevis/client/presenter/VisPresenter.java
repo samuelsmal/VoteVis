@@ -83,7 +83,7 @@ public class VisPresenter extends Composite {
 	private void initalizeVotes() {
 		voteIDs.put("Volksinitiative vom 07.07.2011 'Volkswahl des Bundesrates", "570");
 		voteIDs.put("Volksinitiative vom 18.05.2010 'Schutz vor Passivrauchen", "565");
-		voteIDs.put("Volksinitiative vom 26.06.2009 '6 Wochen Ferien für alle", "557");
+		voteIDs.put("Volksinitiative vom 26.06.2009 '6 Wochen Ferien fÃ¼r alle", "557");
 	}
 
 	public void setTitle(String title) {
@@ -100,7 +100,7 @@ public class VisPresenter extends Composite {
 	
 	public static void setVisualisation(String ID){
 		url = "https://www.google.com/fusiontables/embedviz?q=select+col5+from+10UWQ4DYtmmS1_aaArraatZSGA_6ml9TGwa7FLMk+where+col0+%3D+"+ID+"&viz=MAP&h=false&lat=46.77302748609018&lng=8.74102692187489&t=1&z=8&l=col5&y=2&tmplt=2&hml=KML";
-		bodyDiv.setInnerHTML("<iframe src =" + url + "</iframe>" );
+		bodyDiv.setInnerHTML("<iframe src =" + url + " style=\"overflow:hidden;height:100%;width:100%\" height=\"100%\" width=\"100%\"></iframe>" );
 	}
 }
 
