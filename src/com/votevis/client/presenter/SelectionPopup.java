@@ -21,7 +21,7 @@ public class SelectionPopup extends PopupPanel {
 	
 	SelectionPopup _this = this;
 	
-    private VerticalPanel menu = new VerticalPanel();
+    private HorizontalPanel menu = new HorizontalPanel();
     
     private Label description = new Label("Wählen sie eine Abstimmung aus:");
     
@@ -48,8 +48,10 @@ public class SelectionPopup extends PopupPanel {
 	          	_this.hide();
 	          }
 	        });
+	      
+	      selectButton.setSize("150px", "100px");
 	     
-	      menu.setSize("400px", "200px");
+	      menu.setSize("300px", "200px");
 	      
 	      
 	      Set<String> votes = VisPresenter.voteIDs.keySet();
