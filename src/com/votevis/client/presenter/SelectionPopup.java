@@ -19,7 +19,7 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 public class SelectionPopup extends PopupPanel {
 	VisPresenter vis = new VisPresenter();
 	
-    private VerticalPanel menu = new VerticalPanel();
+    private HorizontalPanel menu = new HorizontalPanel();
     
     private Label description = new Label("Wählen sie eine Abstimmung aus:");
     
@@ -44,8 +44,10 @@ public class SelectionPopup extends PopupPanel {
 	          	VisPresenter.setVisualisation(VisPresenter.voteIDs.get(voteList.getValue(voteList.getSelectedIndex())));
 	          }
 	        });
+	      
+	      selectButton.setSize("150px", "100px");
 	     
-	      menu.setSize("400px", "200px");
+	      menu.setSize("300px", "200px");
 	      
 	      
 	      Set<String> votes = VisPresenter.voteIDs.keySet();
