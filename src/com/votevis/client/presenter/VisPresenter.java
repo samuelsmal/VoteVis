@@ -39,18 +39,18 @@ public class VisPresenter extends Composite {
 	public static HashMap<String, String> voteIDs = new HashMap<String, String>();
 	
 	public VisPresenter () {
-<<<<<<< HEAD
+
 		initalizeVotes();
 		
 		initWidget(binder.createAndBindUi(this));
 	
 	    /*
 	    String options = "ID, Title, Wahlergebnis, Datum, Kanton, Stimmberechtigte, 'Abgegebene Stimmen', Stimmbeteiligung, 'Ja Stimmen', 'Nein Stimmen', 'Ja Stimmen in Prozent', 'Nein Stimmen in Prozent'";
-=======
+
 	    initWidget(binder.createAndBindUi(this));
 	    
 	    String options = "ID, Titel, Wahlergebnis, Datum, Kanton, Stimmberechtigte, 'Abgegebene Stimmen', Stimmbeteiligung, 'Ja Stimmen', 'Nein Stimmen', 'Ja Stimmen in Prozent', 'Nein Stimmen in Prozent'";
->>>>>>> a28ebfe0532798ad04712f9867c82ea871f18f9a
+
 	    String urlFirstPart = "https://www.googleapis.com/fusiontables/v1/query?sql=";
 		String query = "SELECT ID FROM ";
 		String urlLastPart = "10UWQ4DYtmmS1_aaArraatZSGA_6ml9TGwa7FLMk&key=AIzaSyCcjQlwAbsCCZenYYbFXoTE13QEM5rLw7A";
@@ -83,7 +83,7 @@ public class VisPresenter extends Composite {
 	private void initalizeVotes() {
 		voteIDs.put("Volksinitiative vom 07.07.2011 'Volkswahl des Bundesrates", "570");
 		voteIDs.put("Volksinitiative vom 18.05.2010 'Schutz vor Passivrauchen", "565");
-		voteIDs.put("Volksinitiative vom 26.06.2009 '6 Wochen Ferien für alle", "557");
+		voteIDs.put("Volksinitiative vom 26.06.2009 '6 Wochen Ferien fÃ¼r alle", "557");
 	}
 
 	public void setTitle(String title) {
@@ -97,13 +97,10 @@ public class VisPresenter extends Composite {
 	public void setCommentBody (String s) {
 		comment.bodyDiv.setInnerHTML(s);
 	}
-<<<<<<< HEAD
 	
 	public static void setVisualisation(String ID){
 		url = "https://www.google.com/fusiontables/embedviz?q=select+col5+from+10UWQ4DYtmmS1_aaArraatZSGA_6ml9TGwa7FLMk+where+col0+%3D+"+ID+"&viz=MAP&h=false&lat=46.77302748609018&lng=8.74102692187489&t=1&z=8&l=col5&y=2&tmplt=2&hml=KML";
-		bodyDiv.setInnerHTML("<iframe src =" + url + "</iframe>" );
+		bodyDiv.setInnerHTML("<iframe src =" + url + " style=\"overflow:hidden;height:100%;width:100%\" height=\"100%\" width=\"100%\"></iframe>" );
 	}
 }
-=======
-}
->>>>>>> a28ebfe0532798ad04712f9867c82ea871f18f9a
+

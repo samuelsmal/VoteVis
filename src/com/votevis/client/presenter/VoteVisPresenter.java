@@ -97,7 +97,7 @@ public class VoteVisPresenter implements EntryPoint {
 	public void openSelectionDialog() {		
 		
 		if (selection == null) {
-			selection = new SelectionPopup();
+			selection = new SelectionPopup(vis);
 		}
 		selection.center();
 	}
