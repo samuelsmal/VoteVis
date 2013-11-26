@@ -101,9 +101,4 @@ public class VoteVisPresenter implements EntryPoint {
 		}
 		selection.center();
 	}
-		
-	public void selectVote(String ID){
-			vis.setVisualisation(ID);
-		}
-	}
-
+}
