@@ -53,7 +53,7 @@ public class SelectionPopup extends PopupPanel {
 	      // We have to use our own Panel in order to add content to it, since PopupPanel is a SimplePanel and can therefore
 	      // only have one Widget.
 	      
-	      selectButton = new Button("Abstimmung auswählen", new ClickHandler() {
+	      selectButton = new Button("Swissualize dat fishy!", new ClickHandler() {
 	          public void onClick(ClickEvent event) {
 	        	  String ID = VisPresenter.voteIDs.get(voteList.getValue(voteList.getSelectedIndex()));
 	        	  String voteTitle = voteList.getValue(voteList.getSelectedIndex());
@@ -61,6 +61,8 @@ public class SelectionPopup extends PopupPanel {
 	          	_this.hide();
 	          }
 	        });
+	      
+	      
 	      
 	      geographic.addClickHandler(new ClickHandler(){
 	    	  public void onClick(ClickEvent event) {
@@ -80,10 +82,10 @@ public class SelectionPopup extends PopupPanel {
 	    	  
 	      });
 	      
-	      voteList.setSize("300px", "200px");
-	      selectButton.setSize("300px", "200px");
-	     
-	      menu.setSize("300px", "200px");
+	      voteList.setSize("400px", "20");
+		  selectButton.setSize("400px", "30px");
+
+	      menu.setSize("400", "150");
 	      
 	      
 	      Set<String> votes = VisPresenter.voteIDs.keySet();
@@ -91,13 +93,12 @@ public class SelectionPopup extends PopupPanel {
 	    	  voteList.addItem(vote);
 	      }
 	     
-	     
 	      menu.add(header);
 	      menu.add(voteList);
-	      menu.add(selectButton);
 	      visTypes.add(geographic);
 	      visTypes.add(tabular);
 	      menu.add(visTypes);
+	      menu.add(selectButton);
 	  
 	      setWidget(menu);
 	      

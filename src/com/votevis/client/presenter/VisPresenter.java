@@ -77,9 +77,8 @@ public class VisPresenter extends Composite {
 			setCommentBody("Couldn't connect to server");
 		}
 		*/
-		setTitle("Abstimmung");
 		
-		bodyDiv.setInnerHTML("<iframe src =" + geoUrl + " style=\"overflow:hidden;height:100%;width:100%\" height=\"100%\" width=\"100%\"></iframe>" );
+		bodyDiv.setInnerHTML("<iframe style=\"overflow:hidden;height:100%;width:100%\" height=\"100%\" width=\"100%\">Keine Abstimmung ausgewählt</iframe>" );
 	}
 	
 	private void initalizeVotes() {
@@ -106,12 +105,10 @@ public class VisPresenter extends Composite {
 		 bodyDiv.setInnerHTML("<iframe src =" + geoUrl + " style=\"overflow:hidden;height:100%;width:100%\" height=\"100%\" width=\"100%\"></iframe>" );
 		}
 		if(visType == "tab"){
-			titleSpan.setInnerText(voteTitle);
 			tabUrl = "https://www.google.com/fusiontables/embedviz?viz=GVIZ&t=TABLE&q=select+col2%2C+col3%2C+col4%2C+col7%2C+col8%2C+col9%2C+col10%2C+col11%2C+col12%2C+col13+from+10UWQ4DYtmmS1_aaArraatZSGA_6ml9TGwa7FLMk+where+col0+%3D+"+ID+"&containerId=gviz_canvas";
 			bodyDiv.setInnerHTML("<iframe src =" + tabUrl + " style=\"overflow:hidden;height:100%;width:100%\" height=\100%\" width=\"100%\"></iframe>" );
-			
 		}
-		comment.titleSpan.setInnerText(voteTitle);
+		titleSpan.setInnerText(voteTitle);
 	}
 }
 

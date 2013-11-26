@@ -55,8 +55,8 @@
     <ul class='{style.nav-ul}'>
         <li class='{style.nav-li}'><g:Button ui:field='homeLink'>Home</g:Button></li>
         <li class='{style.nav-li}'><g:Button ui:field='aboutLink'>About</g:Button></li>
-        <li class='{style.nav-li}'><g:Button ui:field='contactLink'>Contact</g:Button></li>
-        <li class='{style.nav-li}'><g:Button ui:field='selectionButton'>Selection Abstimmung</g:Button></li>
+        <li class='{style.nav-li}'><g:Button ui:field='contactLink'>Kontakt</g:Button></li>
+        <li class='{style.nav-li}'><g:Button ui:field='selectionButton'>Abstimmung auswählen</g:Button></li>
     </ul>
       <g:HTMLPanel ui:field='content' />
   </g:HTMLPanel>
