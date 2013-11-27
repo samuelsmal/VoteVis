@@ -20,10 +20,10 @@
 	<g:HTMLPanel>
 		<header class='{style.comment-header}'>
 			<span ui:field='titleSpan' />
-				Comments added to the
-			visualisation shown:
+				Kommentare zu dieser Visualisierung:
 		</header>
 		<g:HTMLPanel ui:field='contentet' />
+		<g:DecoratorPanel  ui:field='dpanel' />
 		<div class='{style.comment-body}' ui:field='bodyDiv'>
 			Comments added to the
 			visualisation shown:
@@ -43,8 +43,8 @@
 		<g:RichTextArea ui:field="textInputField" styleName='{style.comment-box}'></g:RichTextArea>
 
 		<div>
-			 <g:Button ui:field='resetComment'>Reset</g:Button>
-			 <g:Button ui:field='addComment'>Add Comment</g:Button>
+			 <g:Button ui:field='resetComment'>Löschen</g:Button>
+			 <g:Button ui:field='addComment'>Kommentar hinzufügen</g:Button>
 		</div>
 	</g:HTMLPanel>
 </ui:UiBinder>

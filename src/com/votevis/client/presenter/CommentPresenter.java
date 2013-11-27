@@ -1,5 +1,6 @@
 package com.votevis.client.presenter;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import com.google.gwt.core.client.GWT;
@@ -12,8 +13,11 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.DecoratorPanel;
+import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.HasHTML;
+import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.RichTextArea;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
@@ -34,12 +38,18 @@ public class CommentPresenter extends Composite {
 	@UiField Button resetComment;
 	@UiField RichTextArea textInputField;
 	@UiField TextBox author;
+	@UiField DecoratorPanel dpanel;
 	
 	CommentBase cBase;
+	private FlexTable flexComment = new FlexTable();
 	
 	public CommentPresenter() {
 	    initWidget(binder.createAndBindUi(this));
 	    cBase = new CommentBase();
+	    author.setText("Name");
+	    textInputField.setText("Geben Sie hier ihren Kommentar ein.");
+		dpanel.add(flexComment);
+	    updateComments();
 	}
 	
 	public void setTitle (String title) {
@@ -65,26 +75,35 @@ public class CommentPresenter extends Composite {
 	
 	@UiHandler("addComment")
 	public void addComment (ClickEvent e) {
-		bodyDiv.setInnerText(author.getText() + "      " + textInputField.getText());
-		
-		//content.clear();
-		
-		//contentet.add("next");
 		
 		if (cBase == null) {
 			cBase = new CommentBase();
 		}
 		Comment c = new Comment();
-		//c.setAuthor(author);
+		c.setAuthor(author.getText());
 		c.setDate(new Date());
-		//c.setComment(comment);
+		c.setComment(textInputField.getText());
 		
 		cBase.getComments().add(c);
+		updateComments();
 	}
 	
 	@UiHandler("resetComment")
 	public void resetComment (ClickEvent e) {
-		bodyDiv.setInnerText("");
+		dpanel.clear();
+		flexComment.clear();
+		dpanel.add(flexComment);
+		cBase.setComments(new ArrayList<Comment>());
+		updateComments();
 	}
 	
+	public void updateComments(){
+		int idx = 0;
+		for (Comment c : cBase.getComments()){
+			
+		flexComment.setText(idx,0,"Kommentiert am "+c.getDate().toString());
+		flexComment.setText(idx++,1," von "+c.getAuthor()+":");
+		flexComment.setText(idx++,0,c.getComment());
+		}
+	}
 }
