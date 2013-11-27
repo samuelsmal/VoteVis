@@ -23,7 +23,7 @@
 				Comments added to the
 			visualisation shown:
 		</header>
-
+		<g:HTMLPanel ui:field='contentet' />
 		<div class='{style.comment-body}' ui:field='bodyDiv'>
 			Comments added to the
 			visualisation shown:

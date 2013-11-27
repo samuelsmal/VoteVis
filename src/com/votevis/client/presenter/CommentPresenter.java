@@ -12,8 +12,10 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.HasHTML;
 import com.google.gwt.user.client.ui.RichTextArea;
+import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.votevis.client.model.*;
 
@@ -24,12 +26,14 @@ public class CommentPresenter extends Composite {
 	interface Binder extends UiBinder<Widget, CommentPresenter> { }
 	private static final Binder binder = GWT.create(Binder.class);
 	
+	@UiField HTMLPanel contentet;
 	@UiField SpanElement titleSpan;
 	@UiField DivElement bodyDiv;
 	@UiField DivElement oldComments;
 	@UiField Button addComment;
 	@UiField Button resetComment;
-	@UiField RichTextArea textInputField; 
+	@UiField RichTextArea textInputField;
+	@UiField TextBox author;
 	
 	CommentBase cBase;
 	
@@ -61,25 +65,14 @@ public class CommentPresenter extends Composite {
 	
 	@UiHandler("addComment")
 	public void addComment (ClickEvent e) {
-		bodyDiv.setInnerText("bla");
-	}
-	
-	@UiHandler("resetComment")
-	public void resetComment (ClickEvent e) {
-		bodyDiv.setInnerText("blabla");
-	}
-	
-	/*
-	public void getCommentText (String body) {
-		oldComments.setInnerText(body);
-	}
-	
-	@UiHandler("commentLink")
-	public void handleComment(ClickEvent e) {
+		bodyDiv.setInnerText(author.getText() + "      " + textInputField.getText());
+		
 		//content.clear();
-		/*
+		
+		//contentet.add("next");
+		
 		if (cBase == null) {
-			CommentBase cBase = new CommentBase();
+			cBase = new CommentBase();
 		}
 		Comment c = new Comment();
 		//c.setAuthor(author);
@@ -87,9 +80,11 @@ public class CommentPresenter extends Composite {
 		//c.setComment(comment);
 		
 		cBase.getComments().add(c);
-		//content.add(vis);
-		 
 	}
-*/
+	
+	@UiHandler("resetComment")
+	public void resetComment (ClickEvent e) {
+		bodyDiv.setInnerText("");
+	}
 	
 }
