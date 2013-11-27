@@ -29,20 +29,22 @@
 			visualisation shown:
 		</div>
 
-		<div class='{style.comment-body}' ui:field='addedComments'>
+		<div class='{style.comment-body}' ui:field='oldComments'>
 			Old Comments...
 		</div>
 
-		<g:Label>Enter comment to add to visualisation:</g:Label>
-		<g:RichTextArea ui:field="commentText" styleName='{style.comment-box}'></g:RichTextArea>
+		
+		<div>
+		<g:Label>Enter your Name:</g:Label>
+		<g:TextBox ui:field="author"></g:TextBox>
+		</div>
+		
+		<g:Label>Enter your comment:</g:Label>
+		<g:RichTextArea ui:field="textInputField" styleName='{style.comment-box}'></g:RichTextArea>
 
 		<div>
-			<button ui:field='resetComment'>
-				<ui:msg>Reset</ui:msg>
-			</button>
-			<button ui:field='addComment'>
-				<ui:msg>Add Comment</ui:msg>
-			</button>
+			 <g:Button ui:field='resetComment'>Reset</g:Button>
+			 <g:Button ui:field='addComment'>Add Comment</g:Button>
 		</div>
 	</g:HTMLPanel>
 </ui:UiBinder>
