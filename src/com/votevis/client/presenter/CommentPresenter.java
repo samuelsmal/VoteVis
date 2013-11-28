@@ -33,7 +33,6 @@ public class CommentPresenter extends Composite {
 	@UiField HTMLPanel contentet;
 	@UiField SpanElement titleSpan;
 	@UiField DivElement bodyDiv;
-	//@UiField DivElement oldComments;
 	@UiField Button addComment;
 	@UiField Button resetComment;
 	@UiField RichTextArea textInputField;
@@ -66,16 +65,6 @@ public class CommentPresenter extends Composite {
 	public void setBody (String body) {
 		bodyDiv.setInnerText(body);
 	}
-	
-	
-    public HasHTML getEnteredText() { 
-            return this.textInputField; 
-    } 
-
-    public Widget asWidget() { 
-            return this; 
-    } 
-	
 	
 	@UiHandler("addComment")
 	public void addComment (ClickEvent e) {

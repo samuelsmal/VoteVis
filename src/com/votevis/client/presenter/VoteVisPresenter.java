@@ -10,6 +10,8 @@ import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HTMLPanel;
+import com.google.gwt.user.client.ui.ScrollPanel;
+import com.google.gwt.user.client.ui.VerticalScrollbar;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 
 
@@ -33,7 +35,6 @@ public class VoteVisPresenter implements EntryPoint {
 	private SelectionPopup selection;
 	private ContactPresenter contact;
 	
-	
 	/**
 	 * This is the entry point method.
 	 */
@@ -43,6 +44,7 @@ public class VoteVisPresenter implements EntryPoint {
 		vis = new VisPresenter();
 		
 		content.add(vis);
+		
 		selectionButton.setEnabled(true);
 		
 		Window.enableScrolling(true);
