@@ -1,4 +1,4 @@
-package com.votevis.client.presenter;
+﻿package com.votevis.client.presenter;
 
 import java.util.Collection;
 import java.util.Set;
@@ -63,8 +63,10 @@ public class SelectionPopup extends PopupPanel {
 	      // We have to use our own Panel in order to add content to it, since PopupPanel is a SimplePanel and can therefore
 	      // only have one Widget.
 	      
+
 	      // Add a Clickhandler to the selectButton to call setVisualisation and change the vote and/or visualisation
 	      selectButton = new Button("Abstimmung auswählen", new ClickHandler() {
+
 	          public void onClick(ClickEvent event) {
 	        	  String ID = VisPresenter.voteIDs.get(voteList.getValue(voteList.getSelectedIndex()));
 	        	  String voteTitle = voteList.getValue(voteList.getSelectedIndex());
@@ -72,14 +74,14 @@ public class SelectionPopup extends PopupPanel {
 	          	_this.hide();
 	          }
 	        });
-	      
-	      // Set visualisation type bool values to Button values
-	 
-	  
-	      tabularButton.setValue(false, new ValueChed);
-	      geographicButton.setValue(true, clicked);
 
-	
+	      
+	      voteList.setSize("400px", "20");
+		  selectButton.setSize("400px", "30px");
+
+	      menu.setSize("400", "150");
+
+	      // Set visualisation type bool values to Button values
 	      
 	      
 	      // Add available votes to the Listbox
@@ -88,17 +90,27 @@ public class SelectionPopup extends PopupPanel {
 	    	  voteList.addItem(vote);
 	      }
 	     
-	      menu.setSize("200px", "100px");
-	      
+
+	      menu.add(header);
+	      menu.add(voteList);
 	      visTypes.add(geographicButton);
 	      visTypes.add(tabularButton);
+	      menu.add(visTypes);
+	      menu.add(selectButton);
+	  
+
+	      menu.setSize("200px", "100px");
 	      
+	      geographicButton.setValue(false);
+	      tabularButton.setValue(false);
+	
 	      //Create a new Panellayout, add Widgets to it and set the widget in Popup
 	      menu.add(header, DockPanel.NORTH);
 	      menu.add(voteList, DockPanel.SOUTH);
 	      menu.add(visTypes, DockPanel.SOUTH);
 	      menu.add(selectButton, DockPanel.SOUTH);
 	    
+
 	      setWidget(menu);
 	      
 	      

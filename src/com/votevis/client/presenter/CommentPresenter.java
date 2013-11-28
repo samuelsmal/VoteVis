@@ -1,4 +1,3 @@
-
 package com.votevis.client.presenter;
 
 import java.util.ArrayList;
@@ -111,4 +110,5 @@ public class CommentPresenter extends Composite {
 		flexComment.setWidget(idx++, 0, new Label("-----------------------------------------------------------------"));
 		}
 	}
+
 }
