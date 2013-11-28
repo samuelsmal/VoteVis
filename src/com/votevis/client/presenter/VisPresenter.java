@@ -34,10 +34,13 @@ public class VisPresenter extends Composite {
 	@UiField static DivElement bodyDiv;
 
 	
-	private static String geoUrl = "https://www.google.com/fusiontables/embedviz?q=select+col5+from+10UWQ4DYtmmS1_aaArraatZSGA_6ml9TGwa7FLMk+where+col0+%3D+565&viz=MAP&h=false&lat=46.77302748609018&lng=8.74102692187489&t=1&z=8&l=col5&y=2&tmplt=2&hml=KML";
+	// Initial geographic visualisation url, links to ID 565
+	private static String geoUrl = "https://www.google.com/fusiontables/embedviz?q=select+col5+from+10UWQ4DYtmmS1_aaArraatZSGA_6ml9TGwa7FLMk+where+col0+%3D+565&viz=MAP&h=false&lat=46.8&lng=8.3&t=1&z=8&l=col5&y=2&tmplt=2&hml=KML";
 	
+	// Initial tabular visualistation url, links to ID 570
 	private static String tabUrl = "https://www.google.com/fusiontables/embedviz?viz=GVIZ&t=TABLE&q=select+col2%2C+col3%2C+col4%2C+col7%2C+col8%2C+col9%2C+col10%2C+col11%2C+col12%2C+col13+from+10UWQ4DYtmmS1_aaArraatZSGA_6ml9TGwa7FLMk+where+col0+%3D+570&containerId=gviz_canvas";
-	public static HashMap<String, String> voteIDs = new HashMap<String, String>();
+	
+	public static HashMap<String, String> voteIDs = new HashMap<String, String>(); //Key: name of vote, Value: ID of vote
 	
 	public VisPresenter () {
 
@@ -77,10 +80,11 @@ public class VisPresenter extends Composite {
 			setCommentBody("Couldn't connect to server");
 		}
 		*/
-		setTitle("Abstimmung");
+		
 		
 		bodyDiv.setInnerHTML("<iframe src =" + geoUrl + " style=\"overflow:hidden;height:100%;width:100%\" height=\"100%\" width=\"100%\"></iframe>" );
 	}
+	
 	
 	private void initalizeVotes() {
 		voteIDs.put("Volksinitiative vom 07.07.2011 'Volkswahl des Bundesrates", "570");
@@ -100,18 +104,20 @@ public class VisPresenter extends Composite {
 		comment.bodyDiv.setInnerHTML(s);
 	}
 	
-	public static void setVisualisation(String ID, String voteTitle, String visType){
-		if(visType == "geo"){
-		 geoUrl = "https://www.google.com/fusiontables/embedviz?q=select+col5+from+10UWQ4DYtmmS1_aaArraatZSGA_6ml9TGwa7FLMk+where+col0+%3D+"+ID+"&viz=MAP&h=false&lat=46.77302748609018&lng=8.74102692187489&t=1&z=8&l=col5&y=2&tmplt=2&hml=KML";
-		 bodyDiv.setInnerHTML("<iframe src =" + geoUrl + " style=\"overflow:hidden;height:100%;width:100%\" height=\"100%\" width=\"100%\"></iframe>" );
+	
+	// Only one of the bools is true
+	public static void setVisualisation(String ID, String voteTitle, boolean geographicSelected, boolean tabularSelected){
+		if(geographicSelected){
+			geoUrl = "https://www.google.com/fusiontables/embedviz?q=select+col5+from+10UWQ4DYtmmS1_aaArraatZSGA_6ml9TGwa7FLMk+where+col0+%3D+"+ID+"&viz=MAP&h=false&lat=46.8&lng=8.3&t=1&z=8&l=col5&y=2&tmplt=2&hml=KML";
+			bodyDiv.setInnerHTML("<iframe src =" + geoUrl + " style=\"overflow:hidden;height:100%;width:100%\" height=\"100%\" width=\"100%\"></iframe>" );
 		}
-		if(visType == "tab"){
+		if(tabularSelected){
 			titleSpan.setInnerText(voteTitle);
 			tabUrl = "https://www.google.com/fusiontables/embedviz?viz=GVIZ&t=TABLE&q=select+col2%2C+col3%2C+col4%2C+col7%2C+col8%2C+col9%2C+col10%2C+col11%2C+col12%2C+col13+from+10UWQ4DYtmmS1_aaArraatZSGA_6ml9TGwa7FLMk+where+col0+%3D+"+ID+"&containerId=gviz_canvas";
 			bodyDiv.setInnerHTML("<iframe src =" + tabUrl + " style=\"overflow:hidden;height:100%;width:100%\" height=\100%\" width=\"100%\"></iframe>" );
 			
 		}
-		comment.titleSpan.setInnerText(voteTitle);
+		titleSpan.setInnerText(voteTitle);
 	}
 }
 
