@@ -93,8 +93,8 @@ public class SelectionPopup extends PopupPanel {
 
 	      menu.add(header);
 	      menu.add(voteList);
-	      visTypes.add(geographic);
-	      visTypes.add(tabular);
+	      visTypes.add(geographicButton);
+	      visTypes.add(tabularButton);
 	      menu.add(visTypes);
 	      menu.add(selectButton);
 	  
