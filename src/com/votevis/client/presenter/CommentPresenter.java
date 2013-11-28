@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package com.votevis.client.presenter;
 
 import com.google.gwt.core.client.GWT;
@@ -38,7 +38,7 @@ public class CommentPresenter extends Composite {
 	public void setBody (String text) {
 		bodyDiv.setInnerText(text);
 	}
-=======
+
 package com.votevis.client.presenter;
 
 import java.util.ArrayList;
@@ -151,5 +151,4 @@ public class CommentPresenter extends Composite {
 		flexComment.setWidget(idx++, 0, new Label("-----------------------------------------------------------------"));
 		}
 	}
->>>>>>> master
 }
