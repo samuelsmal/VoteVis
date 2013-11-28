@@ -1,27 +1,16 @@
 ﻿package com.votevis.client.presenter;
 
-import java.util.Collection;
 import java.util.Set;
 
-import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.CheckBox;
-import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.DockPanel;
-import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ListBox;
-import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.PopupPanel;
 import com.google.gwt.user.client.ui.RadioButton;
-import com.google.gwt.user.client.ui.RootPanel;
-import com.google.gwt.user.client.ui.StackLayoutPanel;
-import com.google.gwt.user.client.ui.VerticalPanel;
 
 // For this class I propose to not use UiBinder since the wanted to dynamically add content to it, 
 // which would be troublesome to do with UiBinder.
