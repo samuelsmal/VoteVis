@@ -12,34 +12,31 @@
 		}
 
 		.comment-box {
-		background-color: #e5ecf9;
+		background-color: #E8E8E8;
 		border: 1px solid black;
 		}
 
 	</ui:style>
 	<g:HTMLPanel>
+	    <br></br>
 		<header class='{style.comment-header}'>
 			<span ui:field='titleSpan' />
 				Kommentare zu dieser Visualisierung:
 		</header>
+		<br></br>
 		<g:HTMLPanel ui:field='contentet' />
 		<g:DecoratorPanel  ui:field='dpanel' />
+		<br></br>
 		<div class='{style.comment-body}' ui:field='bodyDiv'>
-			Comments added to the
-			visualisation shown:
-		</div>
-
-		<div class='{style.comment-body}' ui:field='oldComments'>
-			Old Comments...
 		</div>
 
 		
 		<div>
-		<g:Label>Enter your Name:</g:Label>
-		<g:TextBox ui:field="author"></g:TextBox>
+		<g:Label>Name:</g:Label>
+		<g:TextBox ui:field="author" styleName='{style.comment-box}'></g:TextBox>
 		</div>
 		
-		<g:Label>Enter your comment:</g:Label>
+		<g:Label>Kommentar:</g:Label>
 		<g:RichTextArea ui:field="textInputField" styleName='{style.comment-box}'></g:RichTextArea>
 
 		<div>

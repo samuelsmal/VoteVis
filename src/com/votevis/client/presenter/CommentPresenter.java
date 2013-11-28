@@ -17,7 +17,7 @@ import com.google.gwt.user.client.ui.DecoratorPanel;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.HasHTML;
-import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RichTextArea;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
@@ -33,7 +33,7 @@ public class CommentPresenter extends Composite {
 	@UiField HTMLPanel contentet;
 	@UiField SpanElement titleSpan;
 	@UiField DivElement bodyDiv;
-	@UiField DivElement oldComments;
+	//@UiField DivElement oldComments;
 	@UiField Button addComment;
 	@UiField Button resetComment;
 	@UiField RichTextArea textInputField;
@@ -42,14 +42,21 @@ public class CommentPresenter extends Composite {
 	
 	CommentBase cBase;
 	private FlexTable flexComment = new FlexTable();
-	
+		
 	public CommentPresenter() {
 	    initWidget(binder.createAndBindUi(this));
 	    cBase = new CommentBase();
 	    author.setText("Name");
 	    textInputField.setText("Geben Sie hier ihren Kommentar ein.");
+	    flexComment.setWidth("700px");
 		dpanel.add(flexComment);
-	    updateComments();
+		Comment c = new Comment();
+		c.setDate(new Date());
+		c.setAuthor("Commentard");
+		c.setComment("Comment collision. Imagine a search engine that simply removed the top 1 million most popular web sites from its index. What would you discover? millionshort.com");
+		cBase.setComments(new ArrayList<Comment>());
+		cBase.getComments().add(c);
+		updateComments();
 	}
 	
 	public void setTitle (String title) {
@@ -69,9 +76,6 @@ public class CommentPresenter extends Composite {
             return this; 
     } 
 	
-	public void setOldComments (String body) {
-		oldComments.setInnerText(body);
-	}
 	
 	@UiHandler("addComment")
 	public void addComment (ClickEvent e) {
@@ -90,10 +94,10 @@ public class CommentPresenter extends Composite {
 	
 	@UiHandler("resetComment")
 	public void resetComment (ClickEvent e) {
-		dpanel.clear();
-		flexComment.clear();
-		dpanel.add(flexComment);
 		cBase.setComments(new ArrayList<Comment>());
+		flexComment.clear();
+		dpanel.clear();
+		dpanel.add(flexComment);
 		updateComments();
 	}
 	
@@ -101,9 +105,9 @@ public class CommentPresenter extends Composite {
 		int idx = 0;
 		for (Comment c : cBase.getComments()){
 			
-		flexComment.setText(idx,0,"Kommentiert am "+c.getDate().toString());
-		flexComment.setText(idx++,1," von "+c.getAuthor()+":");
-		flexComment.setText(idx++,0,c.getComment());
+		flexComment.setWidget(idx++, 0, new Label("Kommentiert am "+c.getDate().toString()+" von "+c.getAuthor()+":"));
+		flexComment.setWidget(idx++, 0, new Label(c.getComment()));
+		flexComment.setWidget(idx++, 0, new Label("-----------------------------------------------------------------"));
 		}
 	}
 }
