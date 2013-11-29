@@ -10,6 +10,11 @@ import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HTMLPanel;
+<<<<<<< HEAD
+=======
+import com.google.gwt.user.client.ui.ScrollPanel;
+import com.google.gwt.user.client.ui.VerticalScrollbar;
+>>>>>>> e1d1236bc6d623aace2cc8678735e6d53cd7d43c
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 
 
@@ -33,7 +38,10 @@ public class VoteVisPresenter implements EntryPoint {
 	private SelectionPopup selection;
 	private ContactPresenter contact;
 	
+<<<<<<< HEAD
 	
+=======
+>>>>>>> e1d1236bc6d623aace2cc8678735e6d53cd7d43c
 	/**
 	 * This is the entry point method.
 	 */
@@ -43,6 +51,10 @@ public class VoteVisPresenter implements EntryPoint {
 		vis = new VisPresenter();
 		
 		content.add(vis);
+<<<<<<< HEAD
+=======
+		
+>>>>>>> e1d1236bc6d623aace2cc8678735e6d53cd7d43c
 		selectionButton.setEnabled(true);
 		
 		Window.enableScrolling(true);
@@ -97,9 +109,17 @@ public class VoteVisPresenter implements EntryPoint {
 	public void openSelectionDialog() {		
 		
 		if (selection == null) {
+<<<<<<< HEAD
 			selection = new SelectionPopup();
 		}
 		selection.center();
 	}
 	
 }
+=======
+			selection = new SelectionPopup(vis);
+		}
+		selection.center();
+	}
+}
+>>>>>>> e1d1236bc6d623aace2cc8678735e6d53cd7d43c
