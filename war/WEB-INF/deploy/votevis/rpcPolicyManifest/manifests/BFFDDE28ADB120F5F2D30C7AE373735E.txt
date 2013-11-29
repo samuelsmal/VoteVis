@@ -1,2 +1,0 @@
-serviceClass: com.votevis.client.GreetingService
-path: 3A23DD5E3DE7D244C37025BD40442020.gwt.rpc
