@@ -39,14 +39,14 @@ public class VisPresenter extends Composite {
 		
 		initWidget(binder.createAndBindUi(this));
 		
-		bodyDiv.setInnerHTML("<iframe style=\"overflow:hidden;height:100%;width:100%\" height=\"100%\" width=\"100%\">Keine Abstimmung ausgew�hlt</iframe>" );
+		bodyDiv.setInnerHTML("<iframe src=\""+geoUrl+"\" style=\"overflow:hidden;height:100%;width:100%\" height=\"100%\" width=\"100%\"></iframe>" );
 	}
 	
 	
 	private void initalizeVotes() {
-		voteIDs.put("Volksinitiative vom 07.07.2011 'Volkswahl des Bundesrates", "570");
-		voteIDs.put("Volksinitiative vom 18.05.2010 'Schutz vor Passivrauchen", "565");
-		voteIDs.put("Volksinitiative vom 26.06.2009 '6 Wochen Ferien für alle", "557");
+		voteIDs.put("Volksinitiative vom 07.07.2011 'Volkswahl des Bundesrates'", "570");
+		voteIDs.put("Volksinitiative vom 18.05.2010 'Schutz vor Passivrauchen'", "565");
+		voteIDs.put("Volksinitiative vom 26.06.2009 '6 Wochen Ferien für alle'", "557");
 	}
 
 	@Override
@@ -63,18 +63,16 @@ public class VisPresenter extends Composite {
 	}
 	
 	
-	// Only one of the bools is true
-	public static void setVisualisation(String ID, String voteTitle, boolean geographicSelected, boolean tabularSelected){
-		if(geographicSelected){
+
+	public static void setVisualisation(String ID, String voteTitle, int visSelected){
+		if(visSelected == 1){
 			geoUrl = "https://www.google.com/fusiontables/embedviz?q=select+col5+from+10UWQ4DYtmmS1_aaArraatZSGA_6ml9TGwa7FLMk+where+col0+%3D+"+ID+"&viz=MAP&h=false&lat=46.8&lng=8.3&t=1&z=8&l=col5&y=2&tmplt=2&hml=KML";
-			bodyDiv.setInnerHTML("<iframe src =" + geoUrl + " style=\"overflow:hidden;height:100%;width:100%\" height=\"100%\" width=\"100%\"></iframe>" );
+			bodyDiv.setInnerHTML("<iframe src=\"" + geoUrl + "\" style=\"overflow:hidden;height:100%;width:100%\" height=\"100%\" width=\"100%\"></iframe>" );
 		}
 
-		if(tabularSelected){
-			
-
+		if(visSelected == 0){
 			tabUrl = "https://www.google.com/fusiontables/embedviz?viz=GVIZ&t=TABLE&q=select+col2%2C+col3%2C+col4%2C+col7%2C+col8%2C+col9%2C+col10%2C+col11%2C+col12%2C+col13+from+10UWQ4DYtmmS1_aaArraatZSGA_6ml9TGwa7FLMk+where+col0+%3D+"+ID+"&containerId=gviz_canvas";
-			bodyDiv.setInnerHTML("<iframe src =" + tabUrl + " style=\"overflow:hidden;height:100%;width:100%\" height=\100%\" width=\"100%\"></iframe>" );
+			bodyDiv.setInnerHTML("<iframe src=\"" + tabUrl + "\" style=\"overflow:hidden;height:100%;width:100%\" height=\100%\" width=\"100%\"></iframe>" );
 		}
 		titleSpan.setInnerText(voteTitle);
 	}

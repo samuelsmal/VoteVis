@@ -42,6 +42,11 @@
 		<div>
 			 <g:Button ui:field='resetComment'>Löschen</g:Button>
 			 <g:Button ui:field='addComment'>Kommentar hinzufügen</g:Button>
+			 <g:Button ui:field='addPicture'>Bild hinzufügen</g:Button>
+			 <g:FormPanel ui:field='form'>
+			     <g:FileUpload ui:field='upload'></g:FileUpload>
+			 </g:FormPanel>
+			 
 		</div>
 	</g:HTMLPanel>
 </ui:UiBinder>

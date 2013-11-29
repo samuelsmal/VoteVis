@@ -5,6 +5,7 @@ import java.util.Set;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.DockPanel;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
@@ -24,19 +25,19 @@ public class SelectionPopup extends PopupPanel {
 
 	private HorizontalPanel visTypes = new HorizontalPanel();
 	    
-    private Label header = new Label("Wählen sie eine Abstimmung aus:");
+    private Label header = new Label("WÃ¤hlen sie eine Abstimmung");
+    
+    private Label visTypeHeader = new Label("WÃ¤hlen sie einen Visualisierungstyp");
     
     private Button selectButton;
 
     private ListBox voteList = new ListBox();
     
-    private RadioButton geographicButton = new RadioButton("visType", "Geographisch visualisieren");
+    private RadioButton geographicButton = new RadioButton("visType", "Geographisch");
     
-    private RadioButton tabularButton = new RadioButton("visType", "Tabellarisch visualisieren");
+    private RadioButton tabularButton = new RadioButton("visType", "Tabellarisch");
     
-    boolean tabularSelected = false;
-    
-    boolean geographicSelected= false;
+    int visSelected = 1; // Geographic = 1, Tabular = 0
 
     
 	public SelectionPopup() {
@@ -54,18 +55,36 @@ public class SelectionPopup extends PopupPanel {
 	      
 
 	      // Add a Clickhandler to the selectButton to call setVisualisation and change the vote and/or visualisation
-	      selectButton = new Button("Abstimmung auswählen", new ClickHandler() {
+	      selectButton = new Button("Abstimmung visualisieren", new ClickHandler() {
 
 	          @Override
 			public void onClick(ClickEvent event) {
 	        	  String ID = VisPresenter.voteIDs.get(voteList.getValue(voteList.getSelectedIndex()));
 	        	  String voteTitle = voteList.getValue(voteList.getSelectedIndex());
-	        	  VisPresenter.setVisualisation(ID, voteTitle, tabularSelected, geographicSelected);
+	        	  VisPresenter.setVisualisation(ID, voteTitle, visSelected);
 	          	_this.hide();
 	          }
 	        });
-
 	      
+
+	      geographicButton.setValue(true);
+	      tabularButton.setValue(false);
+	      geographicButton.addClickHandler(new ClickHandler(){
+
+			@Override
+			public void onClick(ClickEvent event) {
+				visSelected = 1;
+			}
+	      });
+	      
+	      tabularButton.addClickHandler(new ClickHandler(){
+
+			@Override
+			public void onClick(ClickEvent event) {
+				visSelected = 0;
+			}
+	    	  
+	      });
 	      voteList.setSize("400px", "20");
 		  selectButton.setSize("400px", "30px");
 
@@ -79,25 +98,23 @@ public class SelectionPopup extends PopupPanel {
 	      for(String vote : votes){
 	    	  voteList.addItem(vote);
 	      }
-	     
-
-	      menu.add(header);
-	      menu.add(voteList);
-	      visTypes.add(geographicButton);
-	      visTypes.add(tabularButton);
-	      menu.add(visTypes);
-	      menu.add(selectButton);
 	  
 
-	      menu.setSize("200px", "100px");
+	      menu.setSize("400px", "200px");
+	      header.setSize("200px", "20px");
+	      voteList.setSize("400px", "20px");
+	      visTypes.setSize("200px", "20px");
+	      selectButton.setSize("200px", "80px");
+
 	      
 	      visTypes.add(geographicButton);
 	      visTypes.add(tabularButton);
 	      
 	      //Create a new Panellayout, add Widgets to it and set the widget in Popup
 	      menu.add(header, DockPanel.NORTH);
-	      menu.add(voteList, DockPanel.SOUTH);
-	      menu.add(visTypes, DockPanel.SOUTH);
+	      menu.add(voteList, DockPanel.NORTH);
+	      menu.add(visTypeHeader, DockPanel.NORTH);
+	      menu.add(visTypes, DockPanel.NORTH);
 	      menu.add(selectButton, DockPanel.SOUTH);
 	    
 
