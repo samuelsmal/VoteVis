@@ -1,25 +1,52 @@
-<ui:UiBinder
-  xmlns:ui='urn:ui:com.google.gwt.uibinder'
-  xmlns:g='urn:import:com.google.gwt.user.client.ui'
-  xmlns:votevis='urn:import:com.votevis.client.presenter'>
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g='urn:import:com.google.gwt.user.client.ui' xmlns:votevis='urn:import:com.votevis.client.presenter'>
 
-  <ui:style>
-     .comment-header {
+	<ui:style>
+
+		.comment-header {
 		font-size: 150%;
-	 }
+		}
 
-	.comment-body {
-	}
-  </ui:style>
+		.comment-body {
 
-  <g:HTMLPanel>
-	<header class='{style.comment-header}'>
-	    <span ui:field='titleSpan'/>
-	</header>
-	
-	<div class='{style.comment-body}' ui:field='bodyDiv'>
-	</div>
-	
-  </g:HTMLPanel>
+		}
 
+		.comment-box {
+		background-color: #E8E8E8;
+		border: 1px solid black;
+		}
+
+	</ui:style>
+	<g:HTMLPanel>
+	    <br></br>
+		<header class='{style.comment-header}'>
+			<span ui:field='titleSpan' />
+				Kommentare zu dieser Visualisierung:
+		</header>
+		<br></br>
+		<g:HTMLPanel ui:field='contentet' />
+		<g:DecoratorPanel  ui:field='dpanel' />
+		<br></br>
+		<div class='{style.comment-body}' ui:field='bodyDiv'>
+		</div>
+
+		
+		<div>
+		<g:Label>Name:</g:Label>
+		<g:TextBox ui:field="author" styleName='{style.comment-box}'></g:TextBox>
+		</div>
+		
+		<g:Label>Kommentar:</g:Label>
+		<g:RichTextArea ui:field="textInputField" styleName='{style.comment-box}'></g:RichTextArea>
+
+		<div>
+			 <g:Button ui:field='resetComment'>Löschen</g:Button>
+			 <g:Button ui:field='addComment'>Kommentar hinzufügen</g:Button>
+			 <g:Button ui:field='addPicture'>Bild hinzufügen</g:Button>
+			 <g:FormPanel ui:field='form'>
+			     <g:FileUpload ui:field='upload'></g:FileUpload>
+			 </g:FormPanel>
+			 
+		</div>
+	</g:HTMLPanel>
 </ui:UiBinder>

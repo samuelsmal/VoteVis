@@ -1,7 +1,57 @@
+
+.gwt/
+.gwt/.gwt-log
+
+# GWT Caches
+/war/VoteVis/
+
+# Google App Engine ignores
 /.apt_generated/
 /gwt-unitCache/
 
-.gwt
+/war/gwt_bree/
+/war/WEB-INF/classes/
+/war/WEB-INF/appengine-generated/
+/war/WEB-INF/deploy/
+/war/WEB-INF/*.api
+
+# Default ignores
+/bin/
+/classes/
+/deploy/
+/dist/
+#/lib/
+/log/
+/reports/
+/test/
+/tmp/
+
+build-base-local.properties
+build-local.properties
+
+*.orig
+*.patch
+*.rej
+
+# Default Java ignores
+*.class
+#*.jar
+*.war
+*.ear
+
+# Ignores for OS X
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Ignores for Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
 
 # Linux
 .directory
+
+# Backup files
+*~

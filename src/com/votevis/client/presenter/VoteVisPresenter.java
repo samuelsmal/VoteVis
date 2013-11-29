@@ -1,4 +1,5 @@
-package com.votevis.client.presenter;
+package com.votevis.client.presenter; 
+
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
@@ -10,6 +11,8 @@ import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HTMLPanel;
+
+
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 
 
@@ -33,16 +36,18 @@ public class VoteVisPresenter implements EntryPoint {
 	private SelectionPopup selection;
 	private ContactPresenter contact;
 	
-	
+
 	/**
 	 * This is the entry point method.
 	 */
+	@Override
 	public void onModuleLoad() {
 		HTMLPanel outer = binder.createAndBindUi(this);
 		
 		vis = new VisPresenter();
 		
 		content.add(vis);
+
 		selectionButton.setEnabled(true);
 		
 		Window.enableScrolling(true);
@@ -97,8 +102,11 @@ public class VoteVisPresenter implements EntryPoint {
 	public void openSelectionDialog() {		
 		
 		if (selection == null) {
-			selection = new SelectionPopup(vis);
+
+			selection = new SelectionPopup();
 		}
 		selection.center();
 	}
+	
 }
+
