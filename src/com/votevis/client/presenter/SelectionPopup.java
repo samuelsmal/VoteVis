@@ -1,4 +1,4 @@
-Ôªøpackage com.votevis.client.presenter;
+package com.votevis.client.presenter;
 
 import java.util.Set;
 
@@ -24,7 +24,7 @@ public class SelectionPopup extends PopupPanel {
 
 	private HorizontalPanel visTypes = new HorizontalPanel();
 	    
-    private Label header = new Label("W√§hlen sie eine Abstimmung aus:");
+    private Label header = new Label("W‰hlen sie eine Abstimmung aus:");
     
     private Button selectButton;
 
@@ -54,7 +54,7 @@ public class SelectionPopup extends PopupPanel {
 	      
 
 	      // Add a Clickhandler to the selectButton to call setVisualisation and change the vote and/or visualisation
-	      selectButton = new Button("Abstimmung ausw√§hlen", new ClickHandler() {
+	      selectButton = new Button("Abstimmung ausw‰hlen", new ClickHandler() {
 
 	          @Override
 			public void onClick(ClickEvent event) {

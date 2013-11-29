@@ -1,5 +1,6 @@
 
 .gwt/
+.gwt/.gwt-log
 
 # GWT Caches
 /war/VoteVis/
