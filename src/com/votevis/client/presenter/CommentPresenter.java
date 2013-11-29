@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> e1d1236bc6d623aace2cc8678735e6d53cd7d43c
+
+
 package com.votevis.client.presenter;
 
 import java.util.ArrayList;
@@ -103,8 +102,7 @@ public class CommentPresenter extends Composite {
 		flexComment.setWidget(idx++, 0, new Label("-----------------------------------------------------------------"));
 		}
 	}
-<<<<<<< HEAD
+
 }
-=======
+
 }
->>>>>>> e1d1236bc6d623aace2cc8678735e6d53cd7d43c
