@@ -1,4 +1,3 @@
-
 package com.votevis.client.presenter;
 
 import com.google.gwt.core.client.EntryPoint;
@@ -105,4 +104,3 @@ public class VoteVisPresenter implements EntryPoint {
 		selection.center();
 	}
 }
->>>>>>> d40eebd7521f1589863b21da4509cb151afc04e6
