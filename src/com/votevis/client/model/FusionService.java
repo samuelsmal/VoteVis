@@ -16,11 +16,13 @@ public class FusionService  {
 		
 		try {
 		  Request request = builder.sendRequest(null, new RequestCallback() {
-		    public void onError(Request request, Throwable exception) {
+		    @Override
+			public void onError(Request request, Throwable exception) {
 		       responseText = "Couldn't connect to server (could be timeout, SOP violation, etc.)";
 		    }
 
-		    public void onResponseReceived(Request request, Response response) {
+		    @Override
+			public void onResponseReceived(Request request, Response response) {
 		      if (200 == response.getStatusCode()) {
 		    	responseText = response.getText();
 		      } else {

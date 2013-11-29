@@ -56,7 +56,8 @@ public class SelectionPopup extends PopupPanel {
 	      // Add a Clickhandler to the selectButton to call setVisualisation and change the vote and/or visualisation
 	      selectButton = new Button("Abstimmung auswählen", new ClickHandler() {
 
-	          public void onClick(ClickEvent event) {
+	          @Override
+			public void onClick(ClickEvent event) {
 	        	  String ID = VisPresenter.voteIDs.get(voteList.getValue(voteList.getSelectedIndex()));
 	        	  String voteTitle = voteList.getValue(voteList.getSelectedIndex());
 	        	  VisPresenter.setVisualisation(ID, voteTitle, tabularSelected, geographicSelected);

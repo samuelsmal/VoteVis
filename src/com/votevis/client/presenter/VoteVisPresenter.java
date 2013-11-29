@@ -12,9 +12,6 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HTMLPanel;
 
 
-import com.google.gwt.user.client.ui.ScrollPanel;
-import com.google.gwt.user.client.ui.VerticalScrollbar;
->>>>>>> e1d1236bc6d623aace2cc8678735e6d53cd7d43c
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 
 
@@ -42,6 +39,7 @@ public class VoteVisPresenter implements EntryPoint {
 	/**
 	 * This is the entry point method.
 	 */
+	@Override
 	public void onModuleLoad() {
 		HTMLPanel outer = binder.createAndBindUi(this);
 		

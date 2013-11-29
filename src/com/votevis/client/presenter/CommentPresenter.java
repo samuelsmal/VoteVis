@@ -1,6 +1,3 @@
-
-
-
 package com.votevis.client.presenter;
 
 import java.util.ArrayList;
@@ -19,7 +16,6 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.DecoratorPanel;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.HTMLPanel;
-import com.google.gwt.user.client.ui.HasHTML;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RichTextArea;
 import com.google.gwt.user.client.ui.TextBox;
@@ -61,6 +57,7 @@ public class CommentPresenter extends Composite {
 		updateComments();
 	}
 	
+	@Override
 	public void setTitle (String title) {
 		titleSpan.setInnerText(title);
 	}
@@ -102,7 +99,4 @@ public class CommentPresenter extends Composite {
 		flexComment.setWidget(idx++, 0, new Label("-----------------------------------------------------------------"));
 		}
 	}
-
-}
-
 }
