@@ -64,7 +64,7 @@ public class VisPresenter extends Composite {
 	
 	
 
-	public static void setVisualisation(String ID, String voteTitle, int visSelected){
+	public static void setVisualisation(String ID, String voteTitle, int visSelected, String cantonsSelected){
 		if(visSelected == 1){
 			geoUrl = "https://www.google.com/fusiontables/embedviz?q=select+col5+from+10UWQ4DYtmmS1_aaArraatZSGA_6ml9TGwa7FLMk+where+col0+%3D+"+ID+"&viz=MAP&h=false&lat=46.8&lng=8.3&t=1&z=8&l=col5&y=2&tmplt=2&hml=KML";
 			bodyDiv.setInnerHTML("<iframe src=\"" + geoUrl + "\" style=\"overflow:hidden;height:100%;width:100%\" height=\"100%\" width=\"100%\"></iframe>" );
