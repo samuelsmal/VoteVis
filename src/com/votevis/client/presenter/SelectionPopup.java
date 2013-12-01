@@ -84,7 +84,8 @@ public class SelectionPopup extends PopupPanel {
 	        		  if(cb.getValue() == true)
 	        			  selectedCantons += cb.getText();
 	        	  }
-	        	  VisPresenter.setVisualisation(ID, voteTitle, visSelected, cantonsSelected);
+	        	  String cantonsSelected = "";
+				VisPresenter.setVisualisation(ID, voteTitle, visSelected, cantonsSelected );
 	          	_this.hide();
 	          }
 	        });
