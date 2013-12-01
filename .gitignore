@@ -1,1 +1,11 @@
+<<<<<<< HEAD
 /test-classes
+=======
+/.apt_generated/
+/gwt-unitCache/
+
+.gwt
+
+# Linux
+.directory
+>>>>>>> d046722b9fd681fed9a78597c4fd5bbefd106706
