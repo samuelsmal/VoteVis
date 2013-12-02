@@ -13,6 +13,8 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.PopupPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.votevis.client.model.FusionTableRawResponse;
 import com.votevis.client.model.Vote;
@@ -38,7 +40,7 @@ public class VisPresenter extends Composite {
 	private RequestBuilder fusionBuilder;
 	private Request fusionRequest;
 	
-	// TODO: Use the request for a loading sign. => request.isPending()
+	final PopupPanel loadingPopup = new PopupPanel(false, true); 
 	    
     // ===============================
     // END FUSION TABLE VARIABLES
@@ -53,12 +55,17 @@ public class VisPresenter extends Composite {
 	public static HashMap<String, String> voteIDs = new HashMap<String, String>(); //Key: name of vote, Value: ID of vote
 	
 	public VisPresenter () {
-
+		loadingPopup.add(new HTML("<div class=\"lp-container\">LOA<br>d<br><br><em>IIIIIIIII</em>ng the <span class=\"lp-fish\">FISH<span></div>"));
+		loadingPopup.setGlassEnabled(true); // Enable the glass panel
+		loadingPopup.show(); // .hide() is called by the last fusiontable function: initalizeVotes().
+		loadingPopup.setStyleName("loadingPopup");
+		
 		accessFusionTable();
 		
 		initWidget(binder.createAndBindUi(this));
 		
 		bodyDiv.setInnerHTML("<iframe src=\""+geoUrl+"\" style=\"overflow:hidden;height:100%;width:100%\" height=\"100%\" width=\"100%\"></iframe>" );
+		
 	}
 	
 	@Override
@@ -126,6 +133,8 @@ public class VisPresenter extends Composite {
 		for (int i = 0, l = votesArray.length(); i < l; i+=26) {
 			voteIDs.put(votesArray.get(i).getTitel(), votesArray.get(i).getId());
 		}
+		
+		loadingPopup.hide();
 	}
 	
     // ===============================
