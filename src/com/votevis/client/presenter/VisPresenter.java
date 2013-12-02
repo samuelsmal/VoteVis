@@ -4,13 +4,18 @@ package com.votevis.client.presenter;
 import java.util.HashMap;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.JsArray;
+import com.google.gwt.core.client.JsonUtils;
 import com.google.gwt.dom.client.DivElement;
 import com.google.gwt.dom.client.SpanElement;
+import com.google.gwt.http.client.*;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
+import com.votevis.client.model.FusionTableRawResponse;
+import com.votevis.client.model.Vote;
 
 public class VisPresenter extends Composite {
 	// Ignore this warning. It is correct.
@@ -24,6 +29,20 @@ public class VisPresenter extends Composite {
 	
 	@UiField static DivElement bodyDiv;
 
+    // ===============================
+    // BEGIN FUSION TABLE VARIABLES
+    // ===============================	
+	private String fusionTableUrl = "https://www.googleapis.com/fusiontables/v1/query?sql=";
+	private String voteBaseTableId = "10UWQ4DYtmmS1_aaArraatZSGA_6ml9TGwa7FLMk";
+	private String browserKey = "AIzaSyCcjQlwAbsCCZenYYbFXoTE13QEM5rLw7A";
+	private RequestBuilder fusionBuilder;
+	private Request fusionRequest;
+	
+	// TODO: Use the request for a loading sign. => request.isPending()
+	    
+    // ===============================
+    // END FUSION TABLE VARIABLES
+    // ===============================
 	
 	// Initial geographic visualisation url, links to ID 565
 	private static String geoUrl = "https://www.google.com/fusiontables/embedviz?q=select+col5+from+10UWQ4DYtmmS1_aaArraatZSGA_6ml9TGwa7FLMk+where+col0+%3D+565&viz=MAP&h=false&lat=46.8&lng=8.3&t=1&z=8&l=col5&y=2&tmplt=2&hml=KML";
@@ -35,20 +54,13 @@ public class VisPresenter extends Composite {
 	
 	public VisPresenter () {
 
-		initalizeVotes();
+		accessFusionTable();
 		
 		initWidget(binder.createAndBindUi(this));
 		
 		bodyDiv.setInnerHTML("<iframe src=\""+geoUrl+"\" style=\"overflow:hidden;height:100%;width:100%\" height=\"100%\" width=\"100%\"></iframe>" );
 	}
 	
-	
-	private void initalizeVotes() {
-		voteIDs.put("Volksinitiative vom 07.07.2011 'Volkswahl des Bundesrates'", "570");
-		voteIDs.put("Volksinitiative vom 18.05.2010 'Schutz vor Passivrauchen'", "565");
-		voteIDs.put("Volksinitiative vom 26.06.2009 '6 Wochen Ferien für alle'", "557");
-	}
-
 	@Override
 	public void setTitle(String title) {
 		titleSpan.setInnerText(title);
@@ -61,8 +73,6 @@ public class VisPresenter extends Composite {
 	public void setCommentBody (String s) {
 		comment.bodyDiv.setInnerHTML(s);
 	}
-	
-	
 
 	public static void setVisualisation(String ID, String voteTitle, int visSelected, String cantonsSelected){
 		if(visSelected == 1){
@@ -76,5 +86,50 @@ public class VisPresenter extends Composite {
 		}
 		titleSpan.setInnerText(voteTitle);
 	}
+	
+    // ===============================
+    // BEGIN FUSION TABLE FUNCTIONS
+    // ===============================	
+	private String getKey() {
+		return "&key=" + browserKey;
+	}
+	
+	public void accessFusionTable() {
+		String url = fusionTableUrl + "SELECT ID, Titel FROM " + voteBaseTableId + getKey();
+		fusionBuilder = new RequestBuilder(RequestBuilder.GET, URL.encode(url));
+		
+		try {
+			fusionRequest = fusionBuilder.sendRequest(null, new RequestCallback() {
+			    @Override
+				public void onError(Request request, Throwable exception) {
+			       // TODO: Throw some exception...
+			    }
+	
+			    @Override
+				public void onResponseReceived(Request request, Response response) {
+			      if (200 == response.getStatusCode()) {
+			    	  initalizeVotes(response.getText());
+			      } else {
+//			        response.getStatusText();
+			      }
+			    }
+			  });
+		} catch (RequestException e) {
+		  // Couldn't connect to server
+		}
+	}
+	
+	public void initalizeVotes(String response) {
+		FusionTableRawResponse ftrr = JsonUtils.safeEval(response);
+		JsArray<Vote> votesArray = ftrr.getRows();
+		
+		for (int i = 0, l = votesArray.length(); i < l; i+=26) {
+			voteIDs.put(votesArray.get(i).getTitel(), votesArray.get(i).getId());
+		}
+	}
+	
+    // ===============================
+    // END FUSION TABLE FUNCTIONS
+    // ===============================
 }
 

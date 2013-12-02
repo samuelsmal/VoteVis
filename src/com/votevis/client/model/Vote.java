@@ -7,6 +7,6 @@ public class Vote extends JavaScriptObject {
 	protected Vote() { }
 	
 	// Typically, methods on overlay types are JSNI
-	public final native String getId() /*-{ return this.ID; }-*/;
-	public final native String getTitel()  /*-{ return this.Titel;  }-*/;
+	public final native String getId() /*-{ return this[0]; }-*/;
+	public final native String getTitel()  /*-{ return this[1];  }-*/;
 }
