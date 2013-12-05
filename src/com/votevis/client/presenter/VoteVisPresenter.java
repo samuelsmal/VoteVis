@@ -103,7 +103,7 @@ public class VoteVisPresenter implements EntryPoint {
 		
 		if (selection == null) {
 
-			selection = new SelectionPopup();
+			selection = new SelectionPopup(vis);
 		}
 		selection.center();
 	}
