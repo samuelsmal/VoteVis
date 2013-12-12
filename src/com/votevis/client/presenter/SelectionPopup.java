@@ -10,6 +10,7 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.DockPanel;
+import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ListBox;
@@ -36,6 +37,7 @@ public class SelectionPopup extends PopupPanel {
     //		Panels
     //=================
 	private DockPanel menu = new DockPanel();
+	private HorizontalPanel button = new HorizontalPanel();
 	private VerticalPanel voteSelectPanel = new VerticalPanel();
 	private VerticalPanel cantonSelectPanel = new VerticalPanel();
 	private HorizontalPanel visTypes = new HorizontalPanel();
@@ -55,6 +57,8 @@ public class SelectionPopup extends PopupPanel {
 	
 	//Variables
 	private int visSelected = 1; // Geographic = 1, Tabular = 0
+	
+	
 	private HashMap<String, HashSet<String>> regions = new HashMap<String, HashSet<String>>();
 
     
@@ -170,13 +174,15 @@ public class SelectionPopup extends PopupPanel {
 	      //===================================
 		  // Style Settings
 		  //===================================
-	      menu.setSize("500px", "50px");
-	      voteSelectPanel.setSize("400px", "500px");
-	      header.setSize("100px", "20px");
-	      cantonsHeader.setSize("100px", "20px");
-	      voteList.setSize("300px", "20px");
-	      visTypes.setSize("200px", "20px");
-	      selectButton.setSize("200px", "80px");
+	      menu.setSize("1200px", "100px");
+	      voteSelectPanel.setSize("1200px", "100px");
+	      header.setSize("200px", "40px");
+	      voteList.setSize("1200px", "20px");
+	      visTypeHeader.setSize("1200px", "40px");
+	      visTypes.setSize("200px", "40px");
+	      selectButton.setSize("300px", "100px");
+	      button.setSize("300px", "100px");
+	      
 
 	      cantonSelectPanel.setSize("100px", "100px");
 	     
@@ -185,18 +191,23 @@ public class SelectionPopup extends PopupPanel {
 	      visTypes.add(geographicButton);
 	      visTypes.add(tabularButton);
 	      
+	      voteSelectPanel.setSize("200px", "20px");
 	      voteSelectPanel.add(header);
 	      voteSelectPanel.add(voteList);
 	      voteSelectPanel.add(visTypeHeader);
 	      voteSelectPanel.add(visTypes);
-	      voteSelectPanel.add(selectButton);
+	      button.add(selectButton);
 	      
 	      for(CheckBox box : regionsBoxes){
 	    	  cantonSelectPanel.add(box);
 	      }
-	      menu.add(voteSelectPanel, DockPanel.WEST);
-	      menu.add(cantonSelectPanel, DockPanel.EAST);
+	      
+	      menu.add(button, DockPanel.SOUTH);
+	      menu.add(cantonSelectPanel, DockPanel.SOUTH);
 
+	      menu.add(voteSelectPanel, DockPanel.SOUTH);
+	      menu.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
+	      
 	      setWidget(menu);
 	      
 	      

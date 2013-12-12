@@ -5,20 +5,27 @@
 
   <ui:style>
      .vis-header {
+		text-align: center;
 		font-size: 200%;
+		position: center;
+		margin: 0 auto;
 	 }
 
 	.vis-body {
-	    position: center;
-    width: 900px;
+	position: center;
+	text_align: center;
+    width: 1900px;
     height: 700px;
+	margin: auto;
 	}
   </ui:style>
 
   <g:HTMLPanel>
-	<header class='{style.vis-header}'>
-	    <span ui:field='titleSpan'/>
-	</header>
+      <div>
+        <header class='{style.vis-header}'><span ui:field='titleSpan'/></header>
+        
+        </div>
+	
 	
 	<div class='{style.vis-body}' ui:field='bodyDiv'>
 	</div>

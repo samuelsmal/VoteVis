@@ -49,17 +49,16 @@
 						<g:Button ui:field='homeLink'>Home</g:Button>
 					</li>
 					<li class='{style.nav-li}'>
-						<g:Button ui:field='aboutLink'>About</g:Button>
+						<g:Button ui:field='aboutLink'>Über uns</g:Button>
 					</li>
 					<li class='{style.nav-li}'>
-						<g:Button ui:field='contactLink'>Contact</g:Button>
+						<g:Button ui:field='contactLink'>Kontakt</g:Button>
 					</li>
 					<li class='{style.nav-li}'>
-						<g:Button ui:field='selectionButton'>Selection Abstimmung</g:Button>
+						<g:Button ui:field='selectionButton'>Abstimmung auswählen</g:Button>
 					</li>
 				</ul>
-				<g:HTMLPanel ui:field='content' />
-			</g:HTMLPanel>
+				<g:HTMLPanel ui:field='content' /></g:HTMLPanel>
 		</g:ScrollPanel>
 	</g:HTMLPanel>
 </ui:UiBinder>

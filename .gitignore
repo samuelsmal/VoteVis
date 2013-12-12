@@ -55,3 +55,4 @@ $RECYCLE.BIN/
 
 # Backup files
 *~
+/test-classes
