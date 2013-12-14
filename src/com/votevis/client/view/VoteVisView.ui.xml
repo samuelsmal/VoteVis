@@ -3,43 +3,54 @@
 
 	<ui:style>
 		.brand {
-		text-align: left;
-		font-size: 200%;
-		colour: grey;
+			text-align: left;
+			font-size: 200%;
+			colour: grey;
 		}
 
 		.statusDiv {
-		text-align: right;
-		margin: 1em;
+			text-align: right;
+			margin: 1em;
 		}
 
 		.linksDiv {
-		text-align: right;
+			text-align: right;
 		}
 
 		.nav-ul {
-		margin: 0;
-		padding: 0;
-		list-style-type: none;
-		position: relative;
+			margin: 0 auto;
+			padding: 0;
+			list-style-type: none;
+			position: relative;
 		}
 
 
 		.nav-li {
-		display: inline;
+			display: inline;
 		}
 
 		.foo {
-		width: 100%;
-		height: 30px;
-		border: 1px red solid;
+			width: 100%;
+			height: 30px;
+			border: 1px red solid;
 		}
+
+		.container {
+			width: 80%;
+			height: 100%;
+			max-width: 400px;
+			min-width: 200px;
+
+			background-color: red;
+			margin: 0 auto;
+		}
+
 
 	</ui:style>
 
-	<g:HTMLPanel>
-		<g:ScrollPanel width='100%' height='100%'>
-			<g:HTMLPanel>
+	<g:HTMLPanel ui:field='uber_container'>
+		<g:ScrollPanel ui:field='container'>
+			<g:HTMLPanel> <!-- ScrollPanel expects only widgets. -->
 				<div class='{style.brand}'>
 					VoteVis
 				</div>
@@ -58,7 +69,9 @@
 						<g:Button ui:field='selectionButton'>Abstimmung auswählen</g:Button>
 					</li>
 				</ul>
-				<g:HTMLPanel ui:field='content' /></g:HTMLPanel>
+				
+				<g:HTMLPanel ui:field='content' />
+			</g:HTMLPanel>
 		</g:ScrollPanel>
 	</g:HTMLPanel>
 </ui:UiBinder>

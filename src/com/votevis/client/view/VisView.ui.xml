@@ -12,28 +12,19 @@
 	 }
 
 	.vis-body {
-	position: center;
-	text_align: center;
-    width: 1900px;
-    height: 700px;
-	margin: auto;
+		position: center;
+		text_align: center;
+    	width: 100%;
+    	height: 100%;
+		margin: auto;
 	}
   </ui:style>
 
   <g:HTMLPanel>
-      <div>
-        <header class='{style.vis-header}'><span ui:field='titleSpan'/></header>
-        
-        </div>
-	
-	
-	<div class='{style.vis-body}' ui:field='bodyDiv'>
-	</div>
-	
-	<div>
+    <header class='{style.vis-header}'><span ui:field='titleSpan'/></header>
+   
+	<div class='{style.vis-body}' ui:field='bodyDiv'></div>
 	<votevis:CommentPresenter ui:field='comment'/>
-	</div>
-	
   </g:HTMLPanel>
 
 </ui:UiBinder>

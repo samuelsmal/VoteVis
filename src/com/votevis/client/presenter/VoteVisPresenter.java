@@ -11,9 +11,8 @@ import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HTMLPanel;
-
-
 import com.google.gwt.user.client.ui.RootLayoutPanel;
+import com.google.gwt.user.client.ui.ScrollPanel;
 
 
 /**
@@ -31,6 +30,9 @@ public class VoteVisPresenter implements EntryPoint {
 	@UiField Button contactLink;
 	@UiField Button selectionButton;
 	
+	@UiField HTMLPanel uber_container;
+	@UiField ScrollPanel container;
+	
 	private AboutPresenter about;
 	private VisPresenter vis;
 	private SelectionPopup selection;
@@ -43,6 +45,10 @@ public class VoteVisPresenter implements EntryPoint {
 	@Override
 	public void onModuleLoad() {
 		HTMLPanel outer = binder.createAndBindUi(this);
+		
+		outer.addStyleName("container");
+		container.addStyleName("container");
+		uber_container.addStyleName("container");
 		
 		vis = new VisPresenter();
 		
@@ -102,7 +108,6 @@ public class VoteVisPresenter implements EntryPoint {
 	public void openSelectionDialog() {		
 		
 		if (selection == null) {
-
 			selection = new SelectionPopup(vis);
 		}
 		selection.center();
