@@ -98,7 +98,7 @@ public class VisPresenter extends Composite {
     // ===============================	
 	
 	public VisPresenter () {
-		loadingPopup.add(new HTML("<div class=\"lp-container\">LOA<br>d<br><br><em>IIIIIIIII</em>ng the <span class=\"lp-fish\">FISH<span></div>"));
+		loadingPopup.add(new HTML("<div class=\"lp-container\">Loading the FISH</div>"));
 		loadingPopup.setGlassEnabled(true); // Enable the glass panel
 		loadingPopup.show(); // .hide() is called by the last fusiontable function: initalizeVotes().
 		

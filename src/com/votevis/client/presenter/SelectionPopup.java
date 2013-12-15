@@ -182,6 +182,7 @@ public class SelectionPopup extends PopupPanel {
 	      visTypes.setSize("200px", "40px");
 	      selectButton.setSize("300px", "100px");
 	      button.setSize("300px", "100px");
+	      button.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
 	      
 
 	      cantonSelectPanel.setSize("100px", "100px");
