@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.DivElement;
 import com.google.gwt.dom.client.SpanElement;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -54,10 +55,7 @@ public class CommentPresenter extends Composite {
 	    textInputField.setText("Geben Sie hier ihren Kommentar ein.");
 	    flexComment.setWidth("700px");
 		dpanel.add(flexComment);
-		
-		
-		Comment c = Comment.create("Commentard", "just now", "Comment collision. Imagine a search engine that simply removed the top 1 million most popular web sites from its index. What would you discover? millionshort.com");
-		cBase.addComment(c);
+
 		updateComments();
 	}
 	
@@ -72,11 +70,13 @@ public class CommentPresenter extends Composite {
 	
 	@UiHandler("addComment")
 	public void addComment (ClickEvent e) {
-		
 		if (cBase == null) {
 			cBase = new CommentBase();
 		}
-		Comment c = Comment.create(author.getText(), "just now", textInputField.getText());		
+		Comment c = null;
+		c.setAuthor(author.getText().toString());
+		c.setDate(new Date().toString());
+		c.setText(textInputField.getText().toString());		
 		cBase.addComment(c);
 		updateComments();
 	}
@@ -110,11 +110,11 @@ public class CommentPresenter extends Composite {
 	
 	public void updateComments(){
 		int idx = 0;
-		for (Comment c : cBase.getComments()){
-			
-		flexComment.setWidget(idx++, 0, new Label("Kommentiert am "+c.getDate()+" von "+c.getAuthor()+":"));
-		flexComment.setWidget(idx++, 0, new Label(c.getComment()));
-		flexComment.setWidget(idx++, 0, new Label("-----------------------------------------------------------------"));
+		
+		for (int i = 0, l = cBase.comments.length(); i < l; ++i) {
+			flexComment.setWidget(idx++, 0, new Label("Kommentiert am " + cBase.comments.get(i).getDate() + " von " + cBase.comments.get(i).getAuthor() + ":"));
+			flexComment.setWidget(idx++, 0, new Label(cBase.comments.get(i).getText()));
+			flexComment.setWidget(idx++, 0, new Label("-----------------------------------------------------------------"));
 		}
 		
 		for(Picture p : cBase.getPictures()){

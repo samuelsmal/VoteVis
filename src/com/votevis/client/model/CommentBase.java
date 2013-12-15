@@ -1,5 +1,7 @@
 package com.votevis.client.model;
 
+import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsonUtils;
 import com.google.gwt.storage.client.Storage;
 
@@ -12,40 +14,44 @@ public class CommentBase {
     // ===============================	
 	private Storage commentStore = null;
 
-	private List<Comment> comments;
+	public JsArray<Comment> comments;
 	private List<Picture> pictures;
 	
 	public CommentBase() {
-		this.comments = new ArrayList<Comment>();
 		this.pictures = new ArrayList<Picture>();
 		
 		commentStore = Storage.getLocalStorageIfSupported();
 		
 		if (commentStore != null) {
 			for (int i = 0; i < commentStore.getLength(); ++i) {
-				String key = commentStore.key(i); // Should be what? Name? Doesn't matter...
+				String key = commentStore.key(i);
 				String value = commentStore.getItem(key);
 				
 				Comment c = JsonUtils.safeEval(value);
-				this.comments.add(c);
+				
+				comments.set(comments.length(), c);
+				comments.setLength(comments.length() + 1);
+				
 			}
 		}
 
 	}
 
-	public List<Comment> getComments() {
+	public JsArray<Comment> getComments() {
 		return comments;
-	}
-
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
 	}
 	
 	public void addComment(Comment c) {
+		// Saves the comment on the local store.
 		if (commentStore != null) {
-			commentStore.setItem("Comments." + commentStore.getLength(), c.toString());
+			commentStore.setItem("Comments." + commentStore.getLength(), c.getJSONString());
 		}
-		this.comments.add(c);
+		System.out.println(c.getAuthor());
+		System.out.println("a: " + comments.get(comments.length()).getAuthor());
+		comments.set(comments.length(), c);
+		System.out.println("b: " + comments.get(comments.length()).getAuthor());
+		comments.setLength(comments.length() + 1);
+		System.out.println("c: " + comments.get(comments.length()).getAuthor());
 	}
 
 	public List<Picture> getPictures() {
