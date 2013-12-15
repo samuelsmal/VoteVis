@@ -110,7 +110,6 @@ public class VisPresenter extends Composite {
 		initWidget(binder.createAndBindUi(this));
 		
 		bodyDiv.setInnerHTML("<iframe src=\"http://erinsimpson.tv/2012/cool/joke_eel_template.jpg\" style=\"overflow:hidden;height:100%;width:100%\" height=\"100%\" width=\"100%\"></iframe>" );
-		
 	}
 	
 	
@@ -142,7 +141,6 @@ public class VisPresenter extends Composite {
 		romandie.add("Neuenburg");
 		romandie.add("Jura");
     }
-
 
 	// ===============================
     // BEGIN FUSION TABLE FUNCTIONS
@@ -208,31 +206,25 @@ public class VisPresenter extends Composite {
 		comment.bodyDiv.setInnerHTML(s);
 	}
 	
-	
 	public HashSet<String> getTicino() {
 		return ticino;
 	}
-
 
 	public HashSet<String> getCentralCantons() {
 		return centralCantons;
 	}
 
-
 	public HashSet<String> getZurichRegion() {
 		return zurichRegion;
 	}
-
 
 	public HashSet<String> getBaselRegion() {
 		return baselRegion;
 	}
 
-
 	public HashSet<String> getBernRegion() {
 		return bernRegion;
 	}
-
 
 	public HashMap<String, String> getVoteIDs() {
 		return voteIDs;

@@ -2,30 +2,21 @@ package com.votevis.client.model;
 
 import java.util.Date;
 
-public class Comment {
-	
-	String comment;
-	String author;
-	Date date;
-	
-	
-	public String getComment() {
-		return comment;
-	}
-	public void setComment(String comment) {
-		this.comment = comment;
-	}
-	public String getAuthor() {
-		return author;
-	}
-	public void setAuthor(String author) {
-		this.author = author;
-	}
-	public Date getDate() {
-		return date;
-	}
-	public void setDate(Date date) {
-		this.date = date;
-	}
+import com.google.gwt.core.client.JavaScriptObject;
 
+// Without the JavaScriptObject-Extension local storage wouldn't work.
+public class Comment extends JavaScriptObject{	
+	protected Comment() {}
+		
+	public final native String getAuthor() /*-{ return this.author; }-*/;
+	public final native String getDate() /*-{ return this.date; }-*/;
+	public final native String getText() /*-{ return this.text; }-*/;
+	
+	public final native void setAuthor(String a) /*-{ this.author = a; }-*/;
+	public final native void setDate(String d) /*-{ this.date = d; }-*/;
+	public final native void setText(String s) /*-{ this.text = s; }-*/;
+	
+	public final native String getJSONString() /*-{
+	  return "{\"author\":\"" + this.author + "\", \"date\":\"" + this.date + "\", \"text\":\"" + this.text + "\"}";
+	}-*/;
 }
