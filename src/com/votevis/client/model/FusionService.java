@@ -1,6 +1,5 @@
 package com.votevis.client.model;
 
-import com.google.gwt.core.client.JsonUtils;
 import com.google.gwt.http.client.*;
 
 public class FusionService  {

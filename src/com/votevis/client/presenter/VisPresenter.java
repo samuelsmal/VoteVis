@@ -3,9 +3,6 @@ package com.votevis.client.presenter;
 
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsonUtils;

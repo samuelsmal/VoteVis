@@ -1,10 +1,8 @@
 package com.votevis.client.presenter;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.DivElement;
 import com.google.gwt.dom.client.SpanElement;
 import com.google.gwt.event.dom.client.ClickEvent;
