@@ -101,7 +101,7 @@ public class CommentPresenter extends Composite {
 
 	@UiHandler("resetComment")
 	public void resetComment (ClickEvent e) {
-		//cBase.setComments(new ArrayList<Comment>());
+		cBase.commentStore.clear();
 		flexComment.clear();
 		dpanel.clear();
 		dpanel.add(flexComment);
@@ -111,9 +111,9 @@ public class CommentPresenter extends Composite {
 	public void updateComments(){
 		int idx = 0;
 		
-		for (int i = 0, l = cBase.comments.length(); i < l; ++i) {
-			flexComment.setWidget(idx++, 0, new Label("Kommentiert am " + cBase.comments.get(i).getDate() + " von " + cBase.comments.get(i).getAuthor() + ":"));
-			flexComment.setWidget(idx++, 0, new Label(cBase.comments.get(i).getText()));
+		for (int i = 0, l = cBase.commentStore.getLength(); i < l; ++i) {
+			flexComment.setWidget(idx++, 0, new Label("Kommentiert am " + cBase.getCommentAt(i).getDate() + " von " + cBase.getCommentAt(i).getAuthor() + ":"));
+			flexComment.setWidget(idx++, 0, new Label(cBase.getCommentAt(i).getText()));
 			flexComment.setWidget(idx++, 0, new Label("-----------------------------------------------------------------"));
 		}
 		

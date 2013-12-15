@@ -12,7 +12,7 @@ public class CommentBase {
     // ===============================
     // BEGIN LOCAL STORAGE VARIABLES
     // ===============================	
-	private Storage commentStore = null;
+	public Storage commentStore = null;
 
 	public JsArray<Comment> comments;
 	private List<Picture> pictures;
@@ -28,9 +28,9 @@ public class CommentBase {
 				String value = commentStore.getItem(key);
 				
 				Comment c = JsonUtils.safeEval(value);
-				
+				/*
 				comments.set(comments.length(), c);
-				comments.setLength(comments.length() + 1);
+				comments.setLength(comments.length() + 1);*/
 				
 			}
 		}
@@ -46,12 +46,14 @@ public class CommentBase {
 		if (commentStore != null) {
 			commentStore.setItem("Comments." + commentStore.getLength(), c.getJSONString());
 		}
-		System.out.println(c.getAuthor());
-		System.out.println("a: " + comments.get(comments.length()).getAuthor());
+		/*
 		comments.set(comments.length(), c);
-		System.out.println("b: " + comments.get(comments.length()).getAuthor());
-		comments.setLength(comments.length() + 1);
-		System.out.println("c: " + comments.get(comments.length()).getAuthor());
+		comments.setLength(comments.length() + 1);*/
+	}
+	
+	public Comment getCommentAt(int i) {
+		Comment c = JsonUtils.safeEval(commentStore.getItem(commentStore.key(i)));
+		return c;
 	}
 
 	public List<Picture> getPictures() {

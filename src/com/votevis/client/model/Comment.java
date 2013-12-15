@@ -17,6 +17,6 @@ public class Comment extends JavaScriptObject{
 	public final native void setText(String s) /*-{ this.text = s; }-*/;
 	
 	public final native String getJSONString() /*-{
-	  return "{\"author\":\"" + this.author + "\", \"date\":\"" + this.date + "\", \"comment\":\"" + this.text + "\"}";
+	  return "{\"author\":\"" + this.author + "\", \"date\":\"" + this.date + "\", \"text\":\"" + this.text + "\"}";
 	}-*/;
 }
