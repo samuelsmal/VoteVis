@@ -50,7 +50,7 @@
 
 	<g:HTMLPanel ui:field='uber_container'>
 		<g:ScrollPanel ui:field='container'>
-			<g:HTMLPanel> <!-- ScrollPanel expects only widgets. -->
+			<g:HTMLPanel> <!-- ScrollPanel expects only widgets, needed wrapper. -->
 				<div class='{style.brand}'>
 					VoteVis
 				</div>

@@ -112,6 +112,4 @@ public class VoteVisPresenter implements EntryPoint {
 		}
 		selection.center();
 	}
-	
 }
-

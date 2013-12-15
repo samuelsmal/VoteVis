@@ -28,7 +28,4 @@ public class CommentBase {
 	public void setPictures(List<Picture> pictures) {
 		this.pictures = pictures;
 	}
-	
-
-	
 }
